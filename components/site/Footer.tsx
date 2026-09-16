@@ -46,9 +46,11 @@ export default function Footer() {
           </p>
           <p className="text-sm text-neutral-500 dark:text-neutral-400">
             Product by{" "}
-            <span className="font-medium text-neutral-900 dark:text-white">
-              Rithwik Sagar
-            </span>
+            <Link
+            href="https://x.com/rithwiksagarr"
+            className="cursor-pointer font-medium text-neutral-900 dark:text-white">
+              @rithwiksagar
+            </Link>
           </p>
           <div className="flex items-center gap-2">
             <Link

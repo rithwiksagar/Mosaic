@@ -137,7 +137,7 @@ function AskAIButton({ className }: { className?: string }) {
         Ask AI
       </motion.span>
       <motion.span layoutId="ask-ai-button" transition={transition}>
-      <AudioWaveform className="size-7 bg-sky-500 p-1 rounded-full text-neutral-100" />
+      <AudioWaveform className="size-7 bg-blue-500 p-1 rounded-full text-neutral-100" />
       </motion.span>
     </button>
   );
@@ -218,7 +218,7 @@ function AskAISubmit({ className }: { className?: string }) {
           layoutId="ask-ai-button"
           transition={transition}
           onClick={handleSubmit}
-          className={cn("bg-sky-500 rounded-full", className)}
+          className={cn("bg-blue-500 rounded-full", className)}
         >
           {isLoading ? (
             <Square className="size-4 md:size-8 fill-white cursor-pointer text-white p-2" />

@@ -1,6 +1,11 @@
+import { component } from "@/types/component";
 import { motion } from "motion/react";
 
-export default function ComponentCard() {
+export default function ComponentCard({
+  title,
+  description,
+  videoPath,
+}: component) {
   return (
     <motion.div
       whileHover="hover"
@@ -16,7 +21,9 @@ export default function ComponentCard() {
           duration: 0.15,
         }}
         className="w-full h-full bg-background rounded-xl border border-neutral-200 dark:bg-neutral-800 dark:border-neutral-700"
-      ></motion.div>
+      >
+        <video src={videoPath} autoPlay loop muted playsInline className="rounded-xl"/>
+      </motion.div>
     </motion.div>
   );
 }
