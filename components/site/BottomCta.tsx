@@ -27,7 +27,7 @@ export default function BottomCTA() {
               transition: { type: spring, bounce: 0.5 },
             }}
 
-            className="rounded-2xl px-4 py-3 bg-blue-500 text-white"
+            className="rounded-2xl px-4 py-3 bg-blue-500 text-white cursor-pointer"
           >
             Notify me
           </motion.button>
