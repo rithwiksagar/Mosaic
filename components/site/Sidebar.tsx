@@ -33,7 +33,7 @@ interface SidebarProps {
 export default function Sidebar() {
   const [activeItem, setActiveItem] = useState("Introduction");
   const [isOpen, setIsOpen] = useState(true);
-  const sidebarRef = useRef<null | HTMLElement>(null);
+  const sidebarRef = useRef<null | HTMLDivElement>(null);
 
   useEffect(() => {
     function hanldeOutSideClick(e: MouseEvent) {
@@ -52,18 +52,17 @@ export default function Sidebar() {
     };
   }, []);
   return (
-    <>
+    <div ref={sidebarRef}>
       <button
         onClick={() => setIsOpen((c) => !c)}
-        className="fixed top-6 left-10 z-9999 rounded-xl bg-muted hover:bg-neutral-200 cursor-pointer p-2.5 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300"
+        className="fixed top-5 left-2 md:left-10 z-9999 rounded-xl bg-muted hover:bg-neutral-200 cursor-pointer p-2.5 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300"
       >
         <FiSidebar className="size-5" />
       </button>
 
       {isOpen && (
         <aside
-          ref={sidebarRef}
-          className="fixed top-20 left-10 w-64 bg-muted px-4 py-14 rounded-2xl"
+          className="fixed top-20 left-2 md:left-10 w-64 bg-muted px-4 py-14 rounded-2xl"
         >
           <section className="mb-10">
             <h2 className="mb-2 px-2 text-[12px] font-medium uppercase tracking-wide text-neutral-700 dark:text-neutral-400">
@@ -120,6 +119,6 @@ export default function Sidebar() {
           </section>
         </aside>
       )}
-    </>
+    </div>
   );
 }

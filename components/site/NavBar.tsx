@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { IoMenu } from "react-icons/io5";
@@ -16,8 +16,8 @@ const labels: label[] = [
 
 export default function NavBar() {
   return (
-    <div className="fixed top-4 left-1/2 -translate-x-1/2 z-9999">
-      <div className="mx-auto flex items-center justify-between  rounded-2xl w-80 md:w-200 bg-muted max-w-4xl py-1 lg:py-2 px-4 z-999 dark:bg-neutral-900">
+    <div className="fixed top-4 right-1/2 translate-x-1/2 z-9999">
+      <div className="mx-auto flex items-center justify-between  rounded-2xl w-54 sm:w-70 md:w-120 lg:w-200 bg-muted max-w-4xl py-1 lg:py-2 px-4 z-999 dark:bg-neutral-900">
         <Link href="/" className="flex items-center px-1 py-1 cursor-pointer">
           <img
             src="/logo/mosaicLogo.jpeg"
@@ -55,24 +55,22 @@ function Menu({ labels }: { labels: label[] }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
 
-  useEffect(()=>{
-    function closeMenu(e: MouseEvent){
-      if(menuRef.current && !menuRef.current.contains(e.target as Node)){
+  useEffect(() => {
+    function closeMenu(e: MouseEvent) {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
         setIsMenuOpen(false);
-      } 
+      }
     }
 
     window.addEventListener("click", closeMenu);
 
     return () => {
-      window.removeEventListener("click", closeMenu)
-    }
-  },[])
+      window.removeEventListener("click", closeMenu);
+    };
+  }, []);
 
   return (
-    <div 
-    ref={menuRef}
-    className="relative lg:hidden">
+    <div ref={menuRef} className="relative lg:hidden">
       <IoMenu
         className="size-5 cursor-pointer"
         onClick={() => {
@@ -83,7 +81,7 @@ function Menu({ labels }: { labels: label[] }) {
       {isMenuOpen && (
         <div
           className="
-          absolute -right-3 top-10
+          absolute -right-18 md:-right-3 top-10
           w-80 rounded-2xl
           border border-neutral-200/30
           bg-neutral-200/40
@@ -92,6 +90,7 @@ function Menu({ labels }: { labels: label[] }) {
           dark:border-neutral-800/60
           dark:bg-neutral-900/70
           dark:shadow-black/20
+          origin-top md:origin-right
         "
         >
           {labels.map((item) => (
