@@ -72,7 +72,7 @@ function Menu({ labels }: { labels: label[] }) {
   return (
     <div ref={menuRef} className="relative lg:hidden">
       <IoMenu
-        className="size-5 cursor-pointer"
+        className="size-5 cursor-pointer p-2"
         onClick={() => {
           setIsMenuOpen((p) => !p);
         }}

@@ -57,7 +57,7 @@ export default function Sidebar() {
         onClick={() => setIsOpen((c) => !c)}
         className="fixed top-5 left-2 md:left-10 z-9999 rounded-xl bg-muted hover:bg-neutral-200 cursor-pointer p-2.5 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300"
       >
-        <FiSidebar className="size-5" />
+        <FiSidebar className="size-4 md:size-5" />
       </button>
 
       {isOpen && (
