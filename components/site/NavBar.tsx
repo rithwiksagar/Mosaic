@@ -1,4 +1,5 @@
 "use client";
+import { AnimatePresence, easeOut, motion } from "motion/react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { IoMenu } from "react-icons/io5";
@@ -79,27 +80,31 @@ function Menu({ labels }: { labels: label[] }) {
       >
         <IoMenu className="size-5 cursor-pointer" />
       </button>
-
-      {isMenuOpen && (
-        <div
-          className="
-          absolute -right-18 md:-right-3 top-10
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, filter: "blur(2px)", scale: 0.99 }}
+            animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
+            exit={{ opacity: 0, filter: "blur(2px)", scale: 0.99 }}
+            transition={{ duration: 0.1, ease: easeOut }}
+            className="
+          absolute -right-18 md:-right-3 top-12
           w-80 rounded-2xl
           border border-neutral-200/30
-          bg-neutral-200/40
+          bg-neutral-800/10
           p-2
           backdrop-blur-xs
           dark:border-neutral-800/60
           dark:bg-neutral-900/70
           dark:shadow-black/20
-          origin-top md:origin-right
+          origin-top md:origin-top-right
         "
-        >
-          {labels.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="
+          >
+            {labels.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="
               block rounded-xl
               px-3 py-2.5
               text-sm text-neutral-700
@@ -108,12 +113,13 @@ function Menu({ labels }: { labels: label[] }) {
               dark:text-neutral-300
               dark:hover:bg-neutral-800/60
             "
-            >
-              {item.label}
-            </Link>
-          ))}
-        </div>
-      )}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
