@@ -1,5 +1,6 @@
 "use client";
 
+import NavBar from "@/components/site/NavBar";
 import  Sidebar  from "@/components/site/Sidebar";
 
 import { ReactNode, useEffect, useRef, useState } from "react";
@@ -28,7 +29,8 @@ export default function DocsLayout({ children }: { children: ReactNode }) {
     };
   }, [open, setOpen]);
   return (
-    <>
+    <div >
+      <NavBar />
       <aside>
         <Sidebar sidebarRef={sidebarRef} setOpen={setOpen} open={open} />
       </aside>
@@ -46,7 +48,7 @@ export default function DocsLayout({ children }: { children: ReactNode }) {
       {children}
     </div>  
       </div>      
-    </>
+    </div>
   );
 }
 

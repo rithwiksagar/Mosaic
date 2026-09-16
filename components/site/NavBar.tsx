@@ -1,3 +1,4 @@
+"use client"
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { IoMenu } from "react-icons/io5";
@@ -15,8 +16,8 @@ const labels: label[] = [
 
 export default function NavBar() {
   return (
-    <div className="fixed top-4 z-9999">
-      <div className="flex items-center justify-between gap-40 md:gap-80 rounded-2xl bg-muted max-w-4xl py-1 lg:py-2 px-4 z-999 dark:bg-neutral-900">
+    <div className="fixed top-4 left-1/2 -translate-x-1/2 z-9999">
+      <div className="mx-auto flex items-center justify-between  rounded-2xl w-80 md:w-200 bg-muted max-w-4xl py-1 lg:py-2 px-4 z-999 dark:bg-neutral-900">
         <Link href="/" className="flex items-center px-1 py-1 cursor-pointer">
           <img
             src="/logo/mosaicLogo.jpeg"

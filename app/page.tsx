@@ -8,7 +8,6 @@ import NavBar from "@/components/site/NavBar";
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col items-center">
-      <NavBar />
       <Hero />
       <ComponentsGrid />
       <BottomCTA />
