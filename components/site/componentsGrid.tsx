@@ -7,26 +7,31 @@ const Components: component[] = [
     title: "Mosaic Prompt Bar",
     description: "Access AI tools with the / command.",
     videoPath: "/previewVideos/PromptBar.webm",
+    href: "/docs/mosaic-promptbar"
   },
   {
-    title: "Mosaic Text Actions",
+    title: "Text Actions",
     description: "Select text to access actions like add to chat or ask AI.",
     videoPath: "/previewVideos/TextActions.webm",
+    href: "/docs/text-actions"
   },
   {
-    title: "Mosaic Ask AI",
+    title: "Prompt Button 001",
     description: "Expand a button into a full AI prompt bar.",
     videoPath: "/previewVideos/AskAI001.webm",
+    href: "/docs/prompt-button-001"
   },
   {
-    title: "Mosaic Ask AI 002",
+    title: "Ask AI 002",
     description: "Ask AI with support for file attachments.",
     videoPath: "/previewVideos/AskAI002.webm",
+    href: "/docs/prompt-button-002"
   },
   {
-    title: "Mosaic Citations",
+    title: "Citations",
     description: "Interactive citations for exploring AI-generated sources.",
     videoPath: "/previewVideos/Citations.webm",
+    href: "/docs/citations"
   },
 ];
 

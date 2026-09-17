@@ -18,7 +18,7 @@ export default function Installation() {
 
       <p>
         Mosiac components can be installed using the shadcn CLI. Follow the{" "}
-        <a href="https://ui.shadcn.com/docs/cli">shadcn CLI documentation</a> to
+        <a className="text-neutral-700 dark:text-neutral-300" href="https://ui.shadcn.com/docs/cli">shadcn CLI documentation</a> to
         set up and use the CLI.
       </p>
 

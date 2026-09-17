@@ -4,5 +4,6 @@
 export type component = {
     title: string,
     description: string,
-    videoPath: string
+    videoPath: string,
+    href: string
 }

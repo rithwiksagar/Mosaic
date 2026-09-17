@@ -76,7 +76,7 @@ export default function Hero() {
           <CopyButton content="" />
         </motion.div>
         <MotionLink
-          href="/docs/introduction"
+          href="/docs/installation"
           whileHover={{ width: 140, transition: { type: spring, bounce: 0.5 } }}
           className="rounded-2xl px-4 py-3 md:py-3 bg-blue-500 text-white flex justify-center"
         >
