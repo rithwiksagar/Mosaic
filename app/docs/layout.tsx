@@ -32,7 +32,7 @@ export default function DocsLayout({ children }: { children: ReactNode }) {
     <div >
       <NavBar />
       <aside>
-        <Sidebar sidebarRef={sidebarRef} setOpen={setOpen} open={open} />
+        <Sidebar />
       </aside>
       <div className="mx-4 md:ml-74">
             <div
