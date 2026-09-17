@@ -1,92 +1,61 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { CodeHighlighter } from "@/lib/codeHighLighter";
+import { useState } from "react";
 import { CopyButton } from "./CopyButton";
 
-type HighlightedCode = {
+type CodeBlockProps = {
   code: string;
-  dark: string;
-  light: string;
+  language?: string;
+  filename?: string;
+  showLineNumbers?: boolean;
 };
 
 export default function CodeBlock({
-  name,
-}: {
-  name: string;
-}) {
-  const [data, setData] = useState<HighlightedCode | null>(null);
-  const [html, setHtml] = useState("");
-
-  
-
-  useEffect(() => {
-    let observer: MutationObserver;
-
-    async function load() {
-      const res = await fetch(`/generated/${name}.json`);
-      const json: HighlightedCode = await res.json();
-
-      setData(json);
-
-      const updateTheme = () => {
-        const isDark =
-          document.documentElement.classList.contains("dark");
-
-        setHtml(isDark ? json.dark : json.light);
-      };
-
-      updateTheme();
-
-      observer = new MutationObserver(updateTheme);
-
-      observer.observe(document.documentElement, {
-        attributes: true,
-        attributeFilter: ["class"],
-      });
-    }
-
-    load();
-
-    return () => observer?.disconnect();
-  }, [name]);
-
-  const copy = async () => {
-    if (!data) return;
-
-    await navigator.clipboard.writeText(data.code);
-  };
+  code,
+  language = "tsx",
+  filename,
+  showLineNumbers = true,
+}: CodeBlockProps) {
+  const lines = code.split("\n");
 
   return (
-  <div className="relative h-full w-full min-h-0">
-    {data && (
-      <div className="absolute top-4 right-4 z-20">
-        <CopyButton content={data.code} />
+    <div className="overflow-hidden rounded-xl bg-neutral-800">
+      {/* Header */}
+      <div className="flex h-11 items-center justify-between border-b border-neutral-800 px-1">
+        <div className="flex items-center gap-3">
+          {filename && (
+            <span className="text-sm text-neutral-300">{filename}</span>
+          )}
+
+          <span className="text-xs uppercase tracking-wide text-neutral-600">
+            {language}
+          </span>
+        </div>
+
+        <CopyButton content={code} />
       </div>
-    )}
 
-    <div className="h-full overflow-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-      <div
-        className="
-          h-full
-          w-full
-          min-h-0
-          overflow-visible
-          px-4
-          py-2
+      {/* Code */}
+      <div className="overflow-x-auto p-4">
+        <pre className="font-mono text-sm leading-6">
+          <code>
+            {lines.map((line, index) => (
+              <div key={index} className="flex min-w-max">
+                {showLineNumbers && (
+                  <span className="mr-6 w-6 select-none text-right text-neutral-700">
+                    {index + 1}
+                  </span>
+                )}
 
-          [&_pre]:m-0!
-          [&_pre]:h-full!
-          [&_pre]:overflow-visible!
-          [&_pre]:bg-transparent!
-
-          [&_code]:!bg-transparent
-          [&_span]:!bg-transparent
-        "
-        dangerouslySetInnerHTML={{ __html: html }}
-      />
+                <span>
+                  <CodeHighlighter code={line} />
+                </span>
+              </div>
+            ))}
+          </code>
+        </pre>
+      </div>
     </div>
-  </div>
-);
-
-
+  );
 }

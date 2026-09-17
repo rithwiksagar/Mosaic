@@ -4,7 +4,7 @@ import { FaGithub } from "react-icons/fa";
 import { RiTwitterXFill } from "react-icons/ri";
 
 const componentLinks = [
-  { label: "Mosaic Prompt Bar", href: "/playground/001" },
+  { label: "Prompt Bar", href: "/playground/001" },
   { label: "Text Actions", href: "/playground/002" },
   { label: "Citations", href: "/playground/003" },
   { label: "Ask AI 001", href: "/playground/00" },
@@ -21,7 +21,7 @@ const pageLinks = [
 
 const resourceLinks = [
   { label: "Documentation", href: "/docs/introduction" },
-  { label: "Quick start", href: "/docs/quick-start" },
+  { label: "Quick Start", href: "/docs/quick-start" },
   { label: "Try AI", href: "/try-ai" },
   { label: "Contact", href: "/contact" },
 ];
