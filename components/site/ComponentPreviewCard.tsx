@@ -20,7 +20,7 @@ export default function ComponentPreviewCard({
       </div>
 
       <div className="bg-background rounded-lg overflow-auto min-h-0 dark:bg-neutral-900 shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
-        <CodeBlock name={code} />
+        <CodeBlock code={code} />
       </div>
     </div>
   );
