@@ -78,7 +78,7 @@ export default function Hero() {
         <MotionLink
           href="/docs/introduction"
           whileHover={{ width: 140, transition: { type: spring, bounce: 0.5 } }}
-          className="rounded-2xl px-4 py-2 md:py-3 bg-blue-500 text-white flex justify-center"
+          className="rounded-2xl px-4 py-3 md:py-3 bg-blue-500 text-white flex justify-center"
         >
           Get started
         </MotionLink>

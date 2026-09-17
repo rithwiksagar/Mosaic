@@ -43,6 +43,7 @@ export default function DocsLayout({ children }: { children: ReactNode }) {
     prose-p:text-neutral-600 dark:prose-p:text-neutral-500 prose-p:leading-8
     prose-h2:font-medium prose-h2:text-[22px] prose-h2:tracking-tight prose-h2:text-neutral-800 dark:prose-h2:text-neutral-300
     prose-p:text-[16px]
+    prose-pre:bg-neutral-200 prose-pre:text-neutral-800 dark:prose-pre:bg-neutral-900 dark:prose-pre:text-neutral-300
     px-6 md:max-w-xl lg:max-w-3xl mt-40 text-justify mx-auto"
     >
       {children}

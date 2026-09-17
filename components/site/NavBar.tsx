@@ -18,7 +18,7 @@ const labels: label[] = [
 export default function NavBar() {
   return (
     <div className="fixed top-4 right-1/2 translate-x-1/2 z-9999">
-      <div className="mx-auto flex items-center justify-between  rounded-2xl w-54 sm:w-70 md:w-120 lg:w-200 bg-muted max-w-4xl py-1 lg:py-2 px-4 z-999 dark:bg-neutral-900">
+      <div className="mx-auto flex items-center justify-between  rounded-2xl w-60 sm:w-70 md:w-120 lg:w-200 bg-muted max-w-4xl py-1 lg:py-2 px-4 z-999 dark:bg-neutral-900">
         <Link href="/" className="flex items-center px-1 py-1 cursor-pointer">
           <img
             src="/logo/mosaicLogo.jpeg"
@@ -88,14 +88,13 @@ function Menu({ labels }: { labels: label[] }) {
             exit={{ opacity: 0, filter: "blur(2px)", scale: 0.99 }}
             transition={{ duration: 0.1, ease: easeOut }}
             className="
-          absolute -right-18 md:-right-3 top-12
+          absolute -right-14 md:-right-3 top-12
           w-80 rounded-2xl
-          border border-neutral-200/30
-          bg-neutral-800/10
+          border border-neutral-200/90
+          bg-muted
           p-2
-          backdrop-blur-xs
-          dark:border-neutral-800/60
-          dark:bg-neutral-900/70
+          dark:border-neutral-800
+          dark:bg-neutral-900
           dark:shadow-black/20
           origin-top md:origin-top-right
         "
@@ -104,6 +103,7 @@ function Menu({ labels }: { labels: label[] }) {
               <Link
                 key={item.href}
                 href={item.href}
+                onClick={()=> setIsMenuOpen(false)}
                 className="
               block rounded-xl
               px-3 py-2.5
