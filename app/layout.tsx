@@ -28,6 +28,15 @@ export default function RootLayout({
       selection:text-sky-500 lg:mx-28 mx-0"
       >
         <ThemeProvider attribute="class" defaultTheme="system">
+          <div className="fixed top-0 left-0 right-0 z-50 h-56 pointer-events-none">
+            <div
+              className="
+      absolute inset-0
+      backdrop-blur-2xl
+      [mask-image:linear-gradient(to_bottom,black_0%,transparent_100%)]
+    "
+            />
+          </div>
           <NavBar />
           {children}
         </ThemeProvider>

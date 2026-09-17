@@ -52,7 +52,7 @@ export default function Footer() {
               @rithwiksagar
             </Link>
           </p>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             <Link
               href=""
               className="text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white"

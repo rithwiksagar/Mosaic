@@ -17,7 +17,7 @@ const labels: label[] = [
 
 export default function NavBar() {
   return (
-    <div className="fixed top-4 right-1/2 translate-x-1/2 z-9999">
+    <div className="fixed right-1/2 translate-x-1/2 z-9999 top-4">
       <div className="mx-auto flex items-center justify-between  rounded-2xl w-60 sm:w-70 md:w-120 lg:w-200 bg-muted max-w-4xl py-1 lg:py-2 px-4 z-999 dark:bg-neutral-900">
         <Link href="/" className="flex items-center px-1 py-1 cursor-pointer">
           <img

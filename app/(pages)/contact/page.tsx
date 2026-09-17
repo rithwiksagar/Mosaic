@@ -8,33 +8,24 @@ export default function Contact() {
       <h1 className="flex justify-center">Contact</h1>
 
       <p>
-        Have a question, found a bug, want to suggest something, or interested
-        in working together? Feel free to reach out.
-      </p>
-
-      <h2>Get in touch</h2>
-
-      <p>
-        If you find a bug or something isn't working as expected, let me know.
-        You can also reach out with feedback, component ideas, collaborations,
-        or anything else related to Mosiac.
+        Have a question, found a bug, want to suggest a component, or interested
+        in working together? Feel free to reach out about anything related to
+        Mosiac.
       </p>
 
       <div className="flex gap-4">
         <Link
           href="https://x.com/rithwiksagarr"
-          className="no-underline flex items-center gap-2 text-neutral-600 hover:text-neutral-800  dark:text-neutral-500 hover:dark:text-neutral-200"
+          className="no-underline flex items-center gap-2 text-neutral-600 hover:text-neutral-800  dark:text-neutral-500 hover:dark:text-neutral-200 p-3"
         >
-          <RiTwitterXFill className="size-4"/>X
+          X
         </Link>
         <Link
           href="mailto:rithwiksagar6@gmail.com"
-          className="no-underline flex items-center gap-2 text-neutral-600 hover:text-neutral-800 dark:text-neutral-500 hover:dark:text-neutral-200"
+          className="no-underline flex items-center gap-2 text-neutral-600 hover:text-neutral-800 dark:text-neutral-500 hover:dark:text-neutral-200 p-3"
         >
-          <IoMailOutline className="size-4"/>Email
+          Email
         </Link>
-
-
       </div>
     </div>
   );
