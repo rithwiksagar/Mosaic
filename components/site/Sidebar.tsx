@@ -12,11 +12,11 @@ const gettingStarted = [
 ];
 
 const components = [
-  { title: "Gooey AI Input", href: "/docs/gooey-input" },
-  { title: "Prompt Input", href: "/docs/prompt-input" },
-  { title: "Model Selector", href: "/docs/modelselector" },
-  { title: "Message Bubble", href: "/docs/message" },
-  { title: "Prompt Suggestion", href: "/docs/prompt-suggestion" },
+  { title: "Mosaic Prompt Bar", href: "/docs/mosaic-promptbar" },
+  { title: "Text Actions", href: "/docs/text-actions" },
+  { title: "Prompt Button 001", href: "/docs/prompt-button-001" },
+  { title: "Prompt Button 002", href: "/docs/prompt-button-002" },
+  { title: "Citations", href: "/docs/citations" },
   { title: "Shimmering Text", href: "/docs/shimmering-text" },
   { title: "With Attachments", href: "/docs/attachments" },
   { title: "Streaming Output", href: "/docs/streaming-output" },

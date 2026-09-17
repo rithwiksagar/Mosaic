@@ -34,16 +34,16 @@ export default function DocsLayout({ children }: { children: ReactNode }) {
       <aside>
         <Sidebar />
       </aside>
-      <div className="mx-4 md:ml-74">
+      <div className="">
             <div
       className="prose 
     prose-neutral 
     dark:prose-invert 
-    prose-h1:text-3xl
-    prose-h3:text-[20px] prose-h3:font-normal prose-h3:tracking-wide
-    prose-h2:font-normal prose-h2:text-[22px] prose-h2:tracking-wide
+    prose-h1:text-2xl md:prose-h1:text-3xl dark:prose-h1:text-neutral-300 prose-h1:text-neutral-800 prose-h1:font-medium
+    prose-p:text-neutral-600 dark:prose-p:text-neutral-500 prose-p:leading-8
+    prose-h2:font-medium prose-h2:text-[22px] prose-h2:tracking-tight prose-h2:text-neutral-800 dark:prose-h2:text-neutral-300
     prose-p:text-[16px]
-    max-w-3xl py-4 md:py-10 mx-4 lg:mx-24 mt-16"
+    px-6 md:max-w-xl lg:max-w-3xl mt-40 text-justify mx-auto"
     >
       {children}
     </div>  
