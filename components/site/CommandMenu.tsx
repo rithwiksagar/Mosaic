@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { createPortal } from "react-dom";
 import { Search } from "lucide-react";
 import { use, useEffect, useRef, useState } from "react";
@@ -49,6 +49,7 @@ const searchableItems = menuItems.flatMap((group) =>
 export default function CommandMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [query, setQuery] = useState("");
+  const [mounted, setMounted] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const commandRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -87,7 +88,6 @@ export default function CommandMenu() {
   useEffect(() => {
     if (!isMenuOpen) return;
 
-
     document.body.style.overflow = "hidden";
 
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -102,8 +102,6 @@ export default function CommandMenu() {
       }
     };
 
-
-
     window.addEventListener("keydown", handleKeyDown);
 
     return () => {
@@ -116,6 +114,9 @@ export default function CommandMenu() {
     setActiveIndex(0);
   }, [query]);
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   return (
     <>
       <div
@@ -131,16 +132,17 @@ export default function CommandMenu() {
           ⌘ K
         </div>
       </div>
-      {createPortal(
+      { mounted && createPortal(
         <AnimatePresence>
           {isMenuOpen && (
-            <div 
-            className="fixed inset-0 z-999 bg-black/10 backdrop-blur-sm dark:bg-black/30 px-2"
-            onMouseDown={(e)=>{
-              if(e.target === e.currentTarget){
-                setIsMenuOpen(false);
-              }
-            }}>
+            <div
+              className="fixed inset-0 z-999 bg-black/10 backdrop-blur-sm dark:bg-black/30 px-2"
+              onMouseDown={(e) => {
+                if (e.target === e.currentTarget) {
+                  setIsMenuOpen(false);
+                }
+              }}
+            >
               <motion.div
                 initial={{ opacity: 0, scale: 0.98, filter: "blur(4px)" }}
                 animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
