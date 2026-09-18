@@ -4,6 +4,7 @@ import { use, useEffect, useRef, useState } from "react";
 import { TbCircleDotted } from "react-icons/tb";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
+import { AnimatePresence, easeOut, motion } from "motion/react";
 
 const menuItems = [
   {
@@ -85,6 +86,7 @@ export default function CommandMenu() {
   useEffect(() => {
     if (!isMenuOpen) return;
 
+
     document.body.style.overflow = "hidden";
 
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -99,21 +101,12 @@ export default function CommandMenu() {
       }
     };
 
-    const handleMouseDown = (e: MouseEvent) => {
-      if (
-        commandRef.current &&
-        !commandRef.current.contains(e.target as Node)
-      ) {
-        return setIsMenuOpen(false);
-      }
-    };
+
 
     window.addEventListener("keydown", handleKeyDown);
-    window.addEventListener("pointerdown", handleMouseDown);
 
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
-      window.removeEventListener("pointerdown", handleMouseDown);
       document.body.style.overflow = "";
     };
   }, [isMenuOpen, filteredItems.length]);
@@ -137,68 +130,80 @@ export default function CommandMenu() {
           ⌘ K
         </div>
       </div>
-
-      {isMenuOpen &&
-        createPortal(
-          <div className="fixed inset-0 z-9999 bg-black/10 backdrop-blur-sm dark:bg-black/30">
-            <div
-              ref={commandRef}
-              className="mx-auto mt-44 w-full max-w-xl rounded-xl border border-neutral-300 bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-950"
-            >
-              <div className="sticky top-0 left-0 flex w-full items-center justify-between rounded-t-2xl border-b border-neutral-200 bg-neutral-100 p-4 text-neutral-500 dark:border-neutral-800 dark:bg-neutral-950">
-                <div className="flex flex-1 items-center">
-                  <Search className="size-4" />
-                  <input
-                    value={query}
-                    onChange={(e) => setQuery(e.target.value)}
-                    ref={inputRef}
-                    className="w-full flex-1 px-2 text-[14px] font-normal text-neutral-900 outline-0 placeholder:text-neutral-500 dark:text-white"
-                    placeholder="Type a command or search..."
-                  />
+      {createPortal(
+        <AnimatePresence>
+          {isMenuOpen && (
+            <div 
+            className="fixed inset-0 z-999 bg-black/10 backdrop-blur-sm dark:bg-black/30 px-2"
+            onMouseDown={(e)=>{
+              if(e.target === e.currentTarget){
+                setIsMenuOpen(false);
+              }
+            }}>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.98, filter: "blur(4px)" }}
+                animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                exit={{ opacity: 0, scale: 0.98, filter: "blur(4px)" }}
+                transition={{ duration: 0.15, ease: easeOut }}
+                ref={commandRef}
+                className="mx-auto mt-44 w-full max-w-xl rounded-xl border border-neutral-300 bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-950"
+              >
+                <div className="sticky top-0 left-0 flex w-full items-center justify-between rounded-t-2xl border-b border-neutral-200 bg-neutral-100 p-4 text-neutral-500 dark:border-neutral-800 dark:bg-neutral-950">
+                  <div className="flex flex-1 items-center">
+                    <Search className="size-4" />
+                    <input
+                      value={query}
+                      onChange={(e) => setQuery(e.target.value)}
+                      ref={inputRef}
+                      className="w-full flex-1 px-2 text-[14px] font-normal text-neutral-900 outline-0 placeholder:text-neutral-500 dark:text-white"
+                      placeholder="Type a command or search..."
+                    />
+                  </div>
+                  <div className="rounded-md border border-neutral-200 bg-neutral-200/50 px-1.5 py-0.5 text-[10px] dark:border-neutral-800 dark:bg-neutral-900">
+                    ESC
+                  </div>
                 </div>
-                <div className="rounded-md border border-neutral-200 bg-neutral-200/50 px-1.5 py-0.5 text-[10px] dark:border-neutral-800 dark:bg-neutral-900">
-                  ESC
-                </div>
-              </div>
-              <div className="h-86 overflow-y-scroll px-4 py-3 [scrollbar-width:none]">
-                {filteredItems.map((item, index) => {
-                  const showGroup =
-                    index === 0 ||
-                    item.group !== filteredItems[index - 1].group;
-                  return (
-                    <div key={index}>
-                      {showGroup && (
-                        <div className="px-1 py-1.5 text-[13px] font-normal text-neutral-800 dark:text-neutral-400">
-                          {item.group}
-                        </div>
-                      )}
-
-                      <div
-                        ref={(el) => {
-                          itemRefs.current[index] = el;
-                        }}
-                        onClick={() => {
-                          router.push(item.href);
-                          setIsMenuOpen(false);
-                        }}
-                        className={cn(
-                          "flex cursor-pointer items-center gap-2 rounded-lg px-2 py-2 text-[15px] font-normal text-neutral-600 hover:bg-neutral-200/60 hover:text-neutral-800 dark:hover:bg-neutral-900 dark:hover:text-neutral-50",
-                          activeIndex === index
-                            ? "bg-neutral-200/60 text-neutral-900 dark:bg-neutral-900 dark:text-neutral-100"
-                            : "dark:text-neutral-400",
+                <div className="h-86 overflow-y-scroll px-4 py-3 [scrollbar-width:none]">
+                  {filteredItems.map((item, index) => {
+                    const showGroup =
+                      index === 0 ||
+                      item.group !== filteredItems[index - 1].group;
+                    return (
+                      <div key={index}>
+                        {showGroup && (
+                          <div className="px-1 py-1.5 text-[13px] font-normal text-neutral-800 dark:text-neutral-400">
+                            {item.group}
+                          </div>
                         )}
-                      >
-                        <TbCircleDotted className="size-4" />
-                        {item.title}
+
+                        <div
+                          ref={(el) => {
+                            itemRefs.current[index] = el;
+                          }}
+                          onClick={() => {
+                            router.push(item.href);
+                            setIsMenuOpen(false);
+                          }}
+                          className={cn(
+                            "flex cursor-pointer items-center gap-2 rounded-lg px-2 py-2 text-[15px] font-normal text-neutral-600 hover:bg-neutral-200/60 hover:text-neutral-800 dark:hover:bg-neutral-900 dark:hover:text-neutral-50",
+                            activeIndex === index
+                              ? "bg-neutral-200/60 text-neutral-900 dark:bg-neutral-900 dark:text-neutral-100"
+                              : "dark:text-neutral-400",
+                          )}
+                        >
+                          <TbCircleDotted className="size-4" />
+                          {item.title}
+                        </div>
                       </div>
-                    </div>
-                  );
-                })}
-              </div>
+                    );
+                  })}
+                </div>
+              </motion.div>
             </div>
-          </div>,
-          document.body,
-        )}
+          )}
+        </AnimatePresence>,
+        document.body,
+      )}
     </>
   );
 }
