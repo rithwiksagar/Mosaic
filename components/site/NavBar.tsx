@@ -3,7 +3,7 @@ import { AnimatePresence, easeOut, motion } from "motion/react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { IoMenu } from "react-icons/io5";
-import CommandMenu from "./CommandMenu/CommandMenu";
+import CommandMenu from "./CommandMenu";
 
 type label = {
   label: string;

@@ -1,4 +1,4 @@
-import CodeBlock from "@/components/site/CodeBlock";
+
 
 export default function Installation() {
   return (
