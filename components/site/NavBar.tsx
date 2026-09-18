@@ -81,10 +81,10 @@ function Menu({ labels }: { labels: label[] }) {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, filter: "blur(2px)", scale: 0.99 }}
+            initial={{ opacity: 0, filter: "blur(4px)", scale: 0.99 }}
             animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
-            exit={{ opacity: 0, filter: "blur(2px)", scale: 0.99 }}
-            transition={{ duration: 0.1, ease: easeOut }}
+            exit={{ opacity: 0, filter: "blur(4px)", scale: 0.99 }}
+            transition={{ duration: 0.18, ease: easeOut }}
             className="
           absolute -right-14 md:-right-3 top-12
           w-80 rounded-2xl
@@ -115,7 +115,7 @@ function Menu({ labels }: { labels: label[] }) {
                 {item.label}
               </Link>
             ))}
-            <div className="border-t py-1.5 text-neutral-800"/>
+            <div className="border-t py-1.5 dark:text-neutral-800 text-neutral-200"/>
             <CommandMenu />
           </motion.div>
         )}

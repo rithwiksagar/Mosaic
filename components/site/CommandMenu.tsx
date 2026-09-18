@@ -100,6 +100,10 @@ export default function CommandMenu() {
       if (e.key === "ArrowUp") {
         setActiveIndex((i) => (i === 0 ? i : i - 1));
       }
+      if (e.key === "Enter"){
+        router.push(filteredItems[activeIndex].href);
+        setIsMenuOpen(false);
+      }
     };
 
     window.addEventListener("keydown", handleKeyDown);
@@ -108,7 +112,7 @@ export default function CommandMenu() {
       window.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "";
     };
-  }, [isMenuOpen, filteredItems.length]);
+  }, [isMenuOpen, filteredItems.length, activeIndex]);
 
   useEffect(() => {
     setActiveIndex(0);
@@ -147,7 +151,7 @@ export default function CommandMenu() {
                 initial={{ opacity: 0, scale: 0.98, filter: "blur(4px)" }}
                 animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
                 exit={{ opacity: 0, scale: 0.98, filter: "blur(4px)" }}
-                transition={{ duration: 0.15, ease: easeOut }}
+                transition={{ duration: 0.13, ease: easeOut }}
                 ref={commandRef}
                 className="mx-auto mt-44 w-full max-w-xl rounded-xl border border-neutral-300 bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-950"
               >
