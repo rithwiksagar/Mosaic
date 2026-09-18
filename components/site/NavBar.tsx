@@ -3,6 +3,7 @@ import { AnimatePresence, easeOut, motion } from "motion/react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { IoMenu } from "react-icons/io5";
+import CommandMenu from "./CommandMenu/CommandMenu";
 
 type label = {
   label: string;
@@ -11,7 +12,6 @@ type label = {
 const labels: label[] = [
   { label: "Github", href: "https://github.com/rithwiksagar/Mosaic" },
   { label: "Docs", href: "/docs/introduction" },
-  { label: "Try AI", href: "/try-ai" },
   { label: "Components", href: "/components" },
 ];
 
@@ -41,9 +41,7 @@ export default function NavBar() {
             </a>
           ))}
 
-          <div className="rounded-xl dark:bg-neutral-200 bg-neutral-800 dark:text-neutral-800 px-4 py-2 text-sm font-medium text-white shadow-sm">
-            Search
-          </div>
+          <CommandMenu />
         </div>
 
         <Menu labels={labels} />
@@ -103,7 +101,7 @@ function Menu({ labels }: { labels: label[] }) {
               <Link
                 key={item.href}
                 href={item.href}
-                onClick={()=> setIsMenuOpen(false)}
+                onClick={() => setIsMenuOpen(false)}
                 className="
               block rounded-xl
               px-3 py-2.5

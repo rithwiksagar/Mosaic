@@ -17,13 +17,15 @@ const pageLinks = [
   { label: "Privacy", href: "/privacy" },
   { label: "Terms", href: "/terms" },
   { label: "License", href: "/license" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const resourceLinks = [
   { label: "Documentation", href: "/docs/introduction" },
   { label: "Quick Start", href: "/docs/quick-start" },
   { label: "Try AI", href: "/try-ai" },
-  { label: "Contact", href: "/contact" },
+  { label: "GitHub", href: "https://github.com/rithwiksagar/Mosaic"},
+  { label: "X", href: "https://x.com/rithwiksagarr"},
 ];
 
 const linkClassName =
@@ -47,20 +49,21 @@ export default function Footer() {
           <p className="text-sm text-neutral-500 dark:text-neutral-400">
             Product by{" "}
             <Link
-            href="https://x.com/rithwiksagarr"
-            className="cursor-pointer font-medium text-neutral-900 dark:text-white">
+              href="https://x.com/rithwiksagarr"
+              className="cursor-pointer font-medium text-neutral-900 dark:text-white"
+            >
               @rithwiksagar
             </Link>
           </p>
           <div className="flex items-center gap-3">
             <Link
-              href=""
+              href="https://github.com/rithwiksagar/Mosaic"
               className="text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white"
             >
               <FaGithub className="size-4" />
             </Link>
             <Link
-              href=""
+              href="https://x.com/rithwiksagarr"
               className="text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white"
             >
               <RiTwitterXFill className="size-4" />
