@@ -1,3 +1,4 @@
+"use client"
 import { createPortal } from "react-dom";
 import { Search } from "lucide-react";
 import { use, useEffect, useRef, useState } from "react";

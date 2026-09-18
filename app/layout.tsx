@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   title: "Mosaic | AI interfaces",
   description:
     "Mosaic provides a curated set of modern UI components and developer utilities designed for building responsive, customizable, and accessible AI chat experiences in web applications.",
+  icons: {
+    icon: "/logo/Favicon.png",
+  },
 };
 
 export default function RootLayout({
