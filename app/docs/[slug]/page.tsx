@@ -1,15 +1,17 @@
-import CodeFile from "@/components/site/CodeFile";
-import CommandBlock from "@/components/site/CommandBlock";
-import ComponentPreviewCard from "@/components/site/ComponentPreviewCard";
-import { CopyButton } from "@/components/site/CopyButton";
-import LibsFile from "@/components/site/LibsFile";
-import PropsTable from "@/components/site/PropsTable";
+
+import CodeFile from "@/components/code/CodeFile";
+import CommandBlock from "@/components/code/CommandBlock";
+import LibsFile from "@/components/code/LibsFile";
+import ComponentPreview from "@/components/docs/ComponentPreview";
+import PropsTable from "@/components/docs/PropsTable";
 import GetFileContent from "@/lib/getFileContent";
 import { PromptBarDemo } from "@/registry/new-york/Examples/MosaicPromptBarDemo";
 
 export default async function Page() {
   const Usagecode = await GetFileContent("Examples/MosaicPromptBardemo.tsx");
-  const componentCode = await GetFileContent("MosaicPromptBar/MosaicPromptBar.tsx");
+  const componentCode = await GetFileContent(
+    "MosaicPromptBar/MosaicPromptBar.tsx",
+  );
   return (
     <div className="prose-p:tracking-tight prose-p:font-normal">
       <div className="">
@@ -19,7 +21,7 @@ export default async function Page() {
         </p>
       </div>
 
-      <ComponentPreviewCard component={PromptBarDemo} code={Usagecode} />
+      <ComponentPreview component={PromptBarDemo} code={Usagecode} />
 
       <section className="mt-10">
         <h6 className="text-lg font-medium text-neutral-700 dark:text-neutral-300">

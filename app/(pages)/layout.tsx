@@ -1,7 +1,7 @@
 "use client";
 
 import NavBar from "@/components/site/NavBar";
-import Sidebar from "@/components/site/Sidebar";
+import Sidebar from "@/components/docs/DocsSidebar";
 
 import { ReactNode, useEffect, useRef, useState } from "react";
 

@@ -1,19 +1,19 @@
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
-import CodeBlock from "./CodeBlock";
-import { CopyButton } from "./CopyButton";
+import CodeBlock from "../code/CodeBlock";
+import { CopyButton } from "../code/CopyButton";
 
-interface ComponentPreviewCardProps {
+interface ComponentPreviewProps {
   component: () => ReactNode;
   code: string;
   classname?: string;
 }
 
-export default function ComponentPreviewCard({
+export default function ComponentPreview({
   component,
   code,
   classname,
-}: ComponentPreviewCardProps) {
+}: ComponentPreviewProps) {
   const Component = component;
 
   return (

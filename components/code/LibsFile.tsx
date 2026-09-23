@@ -1,4 +1,4 @@
-import CodeBlock from "./CodeBlock";
+import CodeBlock from "../code/CodeBlock";
 import { CopyButton } from "./CopyButton";
 
 const code = `import { twMerge } from 'tailwind-merge';

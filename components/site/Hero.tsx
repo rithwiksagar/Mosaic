@@ -1,5 +1,5 @@
 import { easeOut, motion, spring } from "motion/react";
-import { CopyButton } from "./CopyButton";
+import { CopyButton } from "../code/CopyButton";
 import Link from "next/link";
 
 export default function Hero() {
@@ -73,7 +73,7 @@ export default function Hero() {
           className="flex items-center gap-1 text-sm md:w-72 justify-center rounded-xl md:rounded-2xl bg-muted px-4 py-2 md:py-3 text-neutral-500 dark:bg-neutral-900 dark:text-neutral-300 "
         >
           <span>npx create-brainframe-ui@latest</span>
-          <CopyButton content="" />
+          <CopyButton copy="" />
         </motion.div>
         <MotionLink
           href="/docs/installation"

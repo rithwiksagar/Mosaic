@@ -62,7 +62,9 @@ export default function CommandBlock({ command }: { command: string }) {
         )}
       </div>
       <div className="bg-white dark:bg-neutral-950 flex items-center justify-between flex-1 m-1.5 px-4 rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]">
-        <div className="text-neutral-600 font-mono dark:text-neutral-400">{selectedCommand}</div>
+        <div className="text-neutral-600 font-mono dark:text-neutral-400">
+          {selectedCommand}
+        </div>
         <CopyButton copy={selectedCommand} />
       </div>
     </div>

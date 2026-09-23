@@ -25,7 +25,7 @@ const components = [
   { title: "Expandable Input", href: "/docs/expandable-input" },
 ];
 
-export default function Sidebar() {
+export default function DocsSidebar() {
   const [activeItem, setActiveItem] = useState("/docs/introduction");
   const [isOpen, setIsOpen] = useState(false);
   const sidebarRef = useRef<null | HTMLDivElement>(null);
