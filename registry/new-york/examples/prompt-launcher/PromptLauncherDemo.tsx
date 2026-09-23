@@ -1,12 +1,12 @@
 "use client";
 
 import {
-  AskAIButton,
-  AskAITextarea,
-  AskAiPromptBar,
-  AskAISubmit,
-  MosaicAskAI,
-} from "@/registry/new-york/components/prompt-button-001/MosaicPromptButton";
+  PromptLauncherButton,
+  PromptLauncherTextarea,
+  PromptLauncherPromptBar,
+  PromptLauncherSubmit,
+  PromptLauncher,
+} from "@/registry/new-york/components/prompt-launcher/PromptLauncher";
 import { useState } from "react";
 
 export default function MosaicPromptButton001() {
@@ -20,19 +20,19 @@ export default function MosaicPromptButton001() {
 
   return (
     <div className="flex min-h-screen items-center justify-center">
-      <MosaicAskAI
+      <PromptLauncher
         value={value}
         setValue={setValue}
         isLoading={isLoading}
         setIsLoading={setIsLoading}
         onSubmit={onSubmit}
       >
-        <AskAIButton />
-        <AskAiPromptBar>
-          <AskAITextarea />
-          <AskAISubmit />
-        </AskAiPromptBar>
-      </MosaicAskAI>
+        <PromptLauncherButton />
+        <PromptLauncherPromptBar>
+          <PromptLauncherTextarea />
+          <PromptLauncherSubmit />
+        </PromptLauncherPromptBar>
+      </PromptLauncher>
     </div>
   );
 }

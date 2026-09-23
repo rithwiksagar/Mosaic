@@ -1,5 +1,5 @@
 "use client";
-import { MosaicTextActions } from "@/registry/new-york/components/text-actions/TextActions";
+import { TextActions } from "@/registry/new-york/components/text-actions/TextActions";
 import { ArrowUp, Square } from "lucide-react";
 import { useState } from "react";
 
@@ -21,7 +21,7 @@ export default function TextActionsDemo() {
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="max-w-3xl relative text-justify text-xl whitespace-pre-wrap mask-[linear-gradient(to_bottom,black_0%,black_5%,transparent_100%)]">
-        <MosaicTextActions
+        <TextActions
           actions={[
             {
               label: "Add to chat",
@@ -38,7 +38,7 @@ export default function TextActionsDemo() {
           ]}
         >
           {Message}
-        </MosaicTextActions>
+        </TextActions>
       </div>
       <div className="bg-neutral-100 border border-neutral-200 fixed bottom-10 left-50% flex w-xl h-12 items-center rounded-full px-2 py-2.5">
         <textarea

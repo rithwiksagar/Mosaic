@@ -27,7 +27,7 @@ export type PromptPayload = {
   tool: string | null;
 };
 
-type MosaicPromptBarProps = {
+type PromptBarProps = {
   payload: PromptPayload;
   setPayload: Dispatch<SetStateAction<PromptPayload>>;
   isLoading: boolean;
@@ -37,11 +37,11 @@ type MosaicPromptBarProps = {
   className?: string;
 };
 
-type MosaicPromptBarContextType = {
-  payload: MosaicPromptBarProps["payload"];
-  setPayload: MosaicPromptBarProps["setPayload"];
-  onSubmit: MosaicPromptBarProps["onSubmit"];
-  isLoading: MosaicPromptBarProps["isLoading"];
+type PromptBarContextType = {
+  payload: PromptBarProps["payload"];
+  setPayload: PromptBarProps["setPayload"];
+  onSubmit: PromptBarProps["onSubmit"];
+  isLoading: PromptBarProps["isLoading"];
   isToolMenuOpen: boolean;
   setIsToolMenuOpen: Dispatch<SetStateAction<boolean>>;
   selectedIndex: number;
@@ -54,18 +54,18 @@ type MosaicPromptBarContextType = {
   filteredTools: Tool[];
 };
 
-const MosaicPromptBarContext = createContext<MosaicPromptBarContextType | null>(
+const PromptBarContext = createContext<PromptBarContextType | null>(
   null,
 );
 
 const useMosaicContext = () => {
-  const context = useContext(MosaicPromptBarContext);
+  const context = useContext(PromptBarContext);
   if (!context) throw new Error("must be inside the component");
   return context;
 };
 
 // Main PromptBar that Provides shared prompt state and the outer prompt bar layout.
-function MosaicPromptBar({
+function PromptBar({
   payload,
   setPayload,
   isLoading,
@@ -73,7 +73,7 @@ function MosaicPromptBar({
   tools,
   children,
   className,
-}: MosaicPromptBarProps) {
+}: PromptBarProps) {
   const [isToolMenuOpen, setIsToolMenuOpen] = useState<boolean>(false);
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
   const [slashIndex, setSlashIndex] = useState<number>(-1);
@@ -90,7 +90,7 @@ function MosaicPromptBar({
   }, [query]);
 
   return (
-    <MosaicPromptBarContext.Provider
+    <PromptBarContext.Provider
       value={{
         payload,
         setPayload,
@@ -116,7 +116,7 @@ function MosaicPromptBar({
       >
         {children}
       </div>
-    </MosaicPromptBarContext.Provider>
+    </PromptBarContext.Provider>
   );
 }
 
@@ -568,7 +568,7 @@ function PromptInputSubmit({ className }: ActionProps) {
 export {
   ToolMenu,
   ToolItem,
-  MosaicPromptBar,
+  PromptBar,
   PromptInput,
   PromptInputActions,
   PromptInputAttachments,

@@ -3,9 +3,9 @@ import { cn } from "@/lib/utils";
 import { ArrowLeft, ArrowRight, BookOpenText } from "lucide-react";
 import { AnimatePresence, easeOut, motion, scale, spring } from "motion/react";
 import type { ReactNode } from "react";
-import { createContext, useContext, useEffect, useRef, useState } from "react";
+import { createContext, useEffect, useRef, useState, useContext } from "react";
 
-type MosiacCitationsProps = {
+type CitationsProps = {
   sources: SourceData[];
   children: ReactNode;
 };
@@ -17,32 +17,32 @@ type SourceData = {
   favicon: string;
 };
 
-type MosaicCitationsContextValue = {
+type CitationsContextValue = {
   sources: SourceData[];
   activeIndex: number;
   setActiveIndex: (index: number) => void;
 };
 
-const MosaicCitationsContext =
-  createContext<MosaicCitationsContextValue | null>(null);
+const CitationsContext =
+  createContext<CitationsContextValue | null>(null);
 
 function useMosaicContext() {
-  const context = useContext(MosaicCitationsContext);
+  const context = useContext(CitationsContext);
   if (!context) {
-    throw new Error("useMosaicContext must be used inside MosiacCitations");
+    throw new Error("useMosaicContext must be used inside Citations");
   }
   return context;
 }
 
-function MosiacCitations({ sources, children }: MosiacCitationsProps) {
+function Citations({ sources, children }: CitationsProps) {
   const [activeIndex, setActiveIndex] = useState(-1);
 
   return (
-    <MosaicCitationsContext.Provider
+    <CitationsContext.Provider
       value={{ sources, activeIndex, setActiveIndex }}
     >
       {children}
-    </MosaicCitationsContext.Provider>
+    </CitationsContext.Provider>
   );
 }
 
@@ -220,5 +220,5 @@ function Source() {
   );
 }
 
-export { MosiacCitations, Source };
+export { Citations, Source };
 export type { SourceData };

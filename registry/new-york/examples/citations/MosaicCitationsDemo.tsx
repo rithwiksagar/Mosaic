@@ -1,10 +1,6 @@
+import { Citations, Source, SourceData } from "../../components/citations/Citations";
 
 
-import {
-  MosiacCitations,
-  Source,
-  type SourceData,
-} from "@/registry/new-york/components/citations/Citations";
 
 const sources: SourceData[] = [
   {
@@ -47,9 +43,9 @@ const sources: SourceData[] = [
 export default function CitationsDemo() {
   return (
     <div className="flex min-h-screen items-center justify-center">
-      <MosiacCitations sources={sources}>
+      <Citations sources={sources}>
         <Source />
-      </MosiacCitations>
+      </Citations>
     </div>
   );
 }

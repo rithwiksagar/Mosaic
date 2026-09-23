@@ -1,6 +1,6 @@
 "use client";
 
-import { easeOut, motion, spring } from "motion/react";
+import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 
 const tokens = [
@@ -51,7 +51,7 @@ const tokens = [
   " them.",
 ];
 
-function MosaicStreaming() {
+function ResponseStreaming() {
   const [response, setResponse] = useState("");
   const [newToken, setNewToken] = useState("");
 
@@ -81,4 +81,4 @@ function MosaicStreaming() {
   );
 }
 
-export { MosaicStreaming };
+export { ResponseStreaming };

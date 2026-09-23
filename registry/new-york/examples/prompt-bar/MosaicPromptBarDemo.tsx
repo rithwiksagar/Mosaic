@@ -3,12 +3,12 @@ import {
   PromptPayload,
   ToolMenu,
   ToolItem,
-  MosaicPromptBar,
   PromptInput,
   PromptInputAttachments,
   PromptInputActions,
   PromptInputSubmit,
   PromptInputTextArea,
+  PromptBar,
 } from "@/registry/new-york/components/prompt-bar/MosaicPromptBar";
 import { FileText, Lightbulb, PenLine, ImageIcon } from "lucide-react";
 import { useState } from "react";
@@ -57,7 +57,7 @@ export function MosaicPromptBarDemo() {
     }, 2000);
   };
   return (
-    <MosaicPromptBar
+    <PromptBar
       payload={payload}
       setPayload={setPayload}
       isLoading={isLoading}
@@ -75,6 +75,6 @@ export function MosaicPromptBarDemo() {
           <PromptInputSubmit />
         </PromptInputActions>
       </PromptInput>
-    </MosaicPromptBar>
+    </PromptBar>
   );
 }

@@ -2,7 +2,7 @@
 import { cn } from "@/lib/utils";
 import { useEffect, useRef, useState } from "react";
 
-function MosaicTextActions({
+function TextActions({
   children,
   className,
   actions
@@ -99,4 +99,4 @@ function MosaicTextActions({
     </div>
   );
 }
-export { MosaicTextActions };
+export { TextActions };

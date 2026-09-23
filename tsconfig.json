@@ -37,7 +37,7 @@
     "app/docs/gooey-input/page.mdx",
     "app/docs/introduction/page.tsx",
     "app/docs/installation/page.tsx",
-    "registry/new-york/components/prompt-button-001"
+    "registry/new-york/components/prompt-launcher"
   ],
   "exclude": ["node_modules"]
 }
