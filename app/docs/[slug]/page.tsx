@@ -5,10 +5,10 @@ import LibsFile from "@/components/code/LibsFile";
 import ComponentPreview from "@/components/docs/ComponentPreview";
 import PropsTable from "@/components/docs/PropsTable";
 import GetFileContent from "@/lib/getFileContent";
-import { PromptBarDemo } from "@/registry/new-york/Examples/MosaicPromptBarDemo";
+import { MosaicPromptBarDemo } from "@/registry/new-york/Examples/MosaicPromptBarDemo";
 
 export default async function Page() {
-  const Usagecode = await GetFileContent("Examples/MosaicPromptBardemo.tsx");
+  const Usagecode = await GetFileContent("Examples/MosaicPromptBarDemo.tsx");
   const componentCode = await GetFileContent(
     "MosaicPromptBar/MosaicPromptBar.tsx",
   );
@@ -21,7 +21,7 @@ export default async function Page() {
         </p>
       </div>
 
-      <ComponentPreview component={PromptBarDemo} code={Usagecode} />
+      <ComponentPreview component={MosaicPromptBarDemo} code={Usagecode} />
 
       <section className="mt-10">
         <h6 className="text-lg font-medium text-neutral-700 dark:text-neutral-300">

@@ -44,7 +44,7 @@ const tools = [
   },
 ];
 
-export function PromptBarDemo() {
+export function MosaicPromptBarDemo() {
   const [payload, setPayload] = useState<PromptPayload>({
     prompt: "",
     tool: null,
