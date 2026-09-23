@@ -28,7 +28,7 @@ const packageManagers: {
   {
     name: "Bun",
     icon: SiBun,
-    color: "#000000",
+    color: "#FBF0DF",
     command: (component) => `bunx --bun shadcn@latest add ${component}`,
   },
   {

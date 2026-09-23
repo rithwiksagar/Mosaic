@@ -15,14 +15,14 @@ export default function PropsTable({ title, data }: PropsTableProps) {
 
   return (
     <div className="mt-10">
-      <h6 className="mb-1 text-sm font-semibold font-mono text-neutral-500">
+      <h6 className="mb-1 text-md font-semibold font-mono text-neutral-700 cdark:text-neutral-300">
         {title}
       </h6>
 
       <div className="overflow-x-auto">
         <div className="inline-block rounded-lg border border-neutral-300 dark:border-neutral-700">
-          <table className="w-172 border-collapse text-left">
-            <thead className="border-b bg-muted/40">
+          <table className="w-191 border-collapse text-left">
+            <thead className="border-b bg-muted/40 dark:bg-neutral-900">
               <tr>
                 <th className="px-4 py-3 text-sm font-semibold">Prop</th>
                 <th className="px-4 py-3 text-sm font-semibold">Type</th>
@@ -33,8 +33,8 @@ export default function PropsTable({ title, data }: PropsTableProps) {
             <tbody>
               {data.map((item) => (
                 <tr key={item.prop} className="border-b last:border-none">
-                  <td className="px-4 py-3">
-                    <code className="rounded bg-muted px-2 py-1 font-mono text-sm text-neutral-500 dark:text-neutral-300">
+                  <td className="px-4">
+                    <code className="rounded bg-muted dark:bg-neutral-800 px-2 py-1 font-mono text-sm text-neutral-500 dark:text-neutral-300">
                       {item.prop}
                     </code>
                   </td>
