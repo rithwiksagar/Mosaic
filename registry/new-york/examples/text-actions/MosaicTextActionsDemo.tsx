@@ -1,5 +1,5 @@
 "use client";
-import { MosaicTextActions } from "@/registry/new-york/MosaicTextActions/MosaicTextActions";
+import { MosaicTextActions } from "@/registry/new-york/components/text-actions/TextActions";
 import { ArrowUp, Square } from "lucide-react";
 import { useState } from "react";
 

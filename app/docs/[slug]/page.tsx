@@ -5,7 +5,7 @@ import LibsFile from "@/components/code/LibsFile";
 import ComponentPreview from "@/components/docs/ComponentPreview";
 import PropsTable from "@/components/docs/PropsTable";
 import GetFileContent from "@/lib/getFileContent";
-import { MosaicPromptBarDemo } from "@/registry/new-york/Examples/MosaicPromptBarDemo";
+import { MosaicPromptBarDemo } from "@/registry/new-york/examples/prompt-bar/MosaicPromptBarDemo";
 
 export default async function Page() {
   const Usagecode = await GetFileContent("Examples/MosaicPromptBarDemo.tsx");

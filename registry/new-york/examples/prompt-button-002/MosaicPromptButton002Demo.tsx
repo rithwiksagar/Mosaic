@@ -8,7 +8,7 @@ import {
   MosaicAskAI002,
   AskAIAttachments002,
   AskAISubmit002,
-} from "@/registry/new-york/MosaicPromptButton002/MosaicPromptButton002";
+} from "@/registry/new-york/components/prompt-button-002/PromptButton002";
 import { useState } from "react";
 
 export default function MosaicPromptButton002() {

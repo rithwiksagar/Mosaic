@@ -1,4 +1,4 @@
-import { MosaicStreaming } from "@/registry/new-york/MosaicStreaming/MosaicStreaming";
+import { MosaicStreaming } from "@/registry/new-york/components/response-streaming/ResponseStreaming";
 
 
 

@@ -4,7 +4,7 @@ import {
   MosiacCitations,
   Source,
   type SourceData,
-} from "@/registry/new-york/MosaicCitations/MosiacCitations";
+} from "@/registry/new-york/components/citations/Citations";
 
 const sources: SourceData[] = [
   {

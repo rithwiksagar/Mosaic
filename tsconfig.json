@@ -28,7 +28,16 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
-    "**/*.mts"
-, "app/(exampledemo)/modelselector", "app/docs/modelselector/page.mdx", "app/docs/prompt-input/page.mdx", "app/docs/quick-start/page.mdx", "app/docs/message/page.mdx", "app/docs/gooey-input/page.mdx", "app/docs/introduction/page.tsx", "app/docs/installation/page.tsx"  ],
+    "**/*.mts",
+    "app/(exampledemo)/modelselector",
+    "app/docs/modelselector/page.mdx",
+    "app/docs/prompt-input/page.mdx",
+    "app/docs/quick-start/page.mdx",
+    "app/docs/message/page.mdx",
+    "app/docs/gooey-input/page.mdx",
+    "app/docs/introduction/page.tsx",
+    "app/docs/installation/page.tsx",
+    "registry/new-york/components/prompt-button-001"
+  ],
   "exclude": ["node_modules"]
 }

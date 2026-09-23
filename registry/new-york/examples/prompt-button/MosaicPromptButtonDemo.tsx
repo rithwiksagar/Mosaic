@@ -6,7 +6,7 @@ import {
   AskAiPromptBar,
   AskAISubmit,
   MosaicAskAI,
-} from "@/registry/new-york/MosaicPromptButton.tsx/MosaicPromptButton";
+} from "@/registry/new-york/components/prompt-button-001/MosaicPromptButton";
 import { useState } from "react";
 
 export default function MosaicPromptButton001() {
@@ -14,7 +14,7 @@ export default function MosaicPromptButton001() {
   const [isLoading, setIsLoading] = useState(false);
   const onSubmit = () => {
     setIsLoading(true);
-    setValue("")
+    setValue("");
     setTimeout(() => setIsLoading(false), 2000);
   };
 
