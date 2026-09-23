@@ -1,7 +1,7 @@
 "use client";
 import { createPortal } from "react-dom";
 import { Search } from "lucide-react";
-import { use, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { TbCircleDotted } from "react-icons/tb";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";

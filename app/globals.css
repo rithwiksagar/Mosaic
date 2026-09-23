@@ -11,7 +11,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-inter);
-   --color-muted: oklch(96% 0.004 84.559);
+  --color-muted: oklch(96% 0.004 84.559);
 }
 
 .dark {
@@ -23,3 +23,48 @@ body {
   color: var(--foreground);
   font-family: var(--font-inter);
 }
+
+.shiki {
+  background-color: transparent !important;
+}
+
+
+.dark .shiki span {
+  color: var(--shiki-dark) !important;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #a3a3a3 transparent;
+}
+
+/* Chrome / Edge / Safari */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #a3a3a3;
+}
+
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-button:single-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* Dark mode */
+.dark * {
+  scrollbar-color: #525252 transparent;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #525252;
+} 

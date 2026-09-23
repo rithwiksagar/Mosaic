@@ -65,7 +65,7 @@ function MosaicTextActions({
       {showActions && selectedText && (
         <div
           className={cn(
-            "fixed z-50 flex items-center overflow-hidden rounded-lg border-neutral-200/80 bg-white text-sm font-medium text-neutral-700 shadow-[0_3px_10px_rgb(0,0,0,0.2)] backdrop-blur dark:border-neutral-700/80 dark:bg-neutral-900/95 dark:text-neutral-200",
+            "fixed z-50 flex items-center overflow-hidden rounded-lg border-neutral-200/60 bg-white text-sm font-medium text-neutral-700 shadow-[0_3px_10px_rgb(0,0,0,0.2)] dark:border-neutral-700/70 dark:bg-neutral-900 dark:text-neutral-100 border",
             className,
           )}
           style={{ top: coordinates.top, left: coordinates.left }}

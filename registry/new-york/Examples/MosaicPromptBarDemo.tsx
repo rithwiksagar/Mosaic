@@ -44,22 +44,7 @@ const tools = [
   },
 ];
 
-export default function Play() {
-  return (
-    <div
-      className="h-screen flex items-center justify-center  min-h-screen
-    bg-cover
-    bg-center
-    bg-no-repeat
-    animate-[moveBg_15s_ease-in-out_infinite_alternate]"
-      style={{ backgroundImage: "url('/image.png')" }}
-    >
-      <MosaicPromptBarDemo />
-    </div>
-  );
-}
-
-function MosaicPromptBarDemo() {
+export function PromptBarDemo() {
   const [payload, setPayload] = useState<PromptPayload>({
     prompt: "",
     tool: null,

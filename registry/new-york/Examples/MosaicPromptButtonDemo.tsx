@@ -6,10 +6,10 @@ import {
   AskAiPromptBar,
   AskAISubmit,
   MosaicAskAI,
-} from "@/registry/new-york/MosaicAskAI/MosaicAskAI";
+} from "@/registry/new-york/MosaicPromptButton.tsx/MosaicPromptButton";
 import { useState } from "react";
 
-export default function Play() {
+export default function MosaicPromptButton001() {
   const [value, setValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const onSubmit = () => {

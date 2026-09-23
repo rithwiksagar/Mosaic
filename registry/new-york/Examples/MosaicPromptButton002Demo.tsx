@@ -8,10 +8,10 @@ import {
   MosaicAskAI002,
   AskAIAttachments002,
   AskAISubmit002,
-} from "@/registry/new-york/MosaicAskAI002/MosaicAskAI002";
+} from "@/registry/new-york/MosaicPromptButton002/MosaicPromptButton002";
 import { useState } from "react";
 
-export default function Play() {
+export default function MosaicPromptButton002() {
   const [value, setValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const onSubmit = () => {

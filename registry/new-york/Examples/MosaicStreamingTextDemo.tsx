@@ -3,7 +3,7 @@ import { MosaicStreaming } from "@/registry/new-york/MosaicStreaming/MosaicStrea
 
 
 
-export default function Play(){
+export default function MosaicStreamingDemo(){
     return <div className="h-screen max-w-2xl flex justify-start items-center">
     <MosaicStreaming />
     </div>

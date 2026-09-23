@@ -5,6 +5,7 @@ import { AnimatePresence, easeOut, motion, spring } from "motion/react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { FiSidebar } from "react-icons/fi";
+import { usePathname } from "next/navigation";
 
 const gettingStarted = [
   { title: "Introduction", href: "/docs/introduction" },
@@ -24,16 +25,18 @@ const components = [
   { title: "Expandable Input", href: "/docs/expandable-input" },
 ];
 
-interface SidebarProps {
-  sidebarRef: React.RefObject<HTMLDivElement | null>;
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  open: boolean;
-}
-
 export default function Sidebar() {
-  const [activeItem, setActiveItem] = useState("Introduction");
+  const [activeItem, setActiveItem] = useState("/docs/introduction");
   const [isOpen, setIsOpen] = useState(false);
   const sidebarRef = useRef<null | HTMLDivElement>(null);
+  const pathName = usePathname();
+
+  useEffect(()=>{
+    if(activeItem !== pathName){
+      setActiveItem(pathName)
+    }
+  },[pathName])
+
 
   useEffect(() => {
     function hanldeOutSideClick(e: MouseEvent) {
@@ -65,7 +68,7 @@ export default function Sidebar() {
             initial={{ opacity: 0, x: -20, filter: "blur(2px)" }}
             animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
             exit={{ opacity: 0, x: -20, filter: "blur(2px)" }}
-            transition={{duration: 0.15, ease:easeOut}}
+            transition={{ duration: 0.15, ease: easeOut }}
             className="fixed top-20 left-2 md:left-10 w-64 bg-muted dark:bg-neutral-900 px-4 py-16 rounded-2xl"
           >
             <section className="mb-10">
@@ -78,10 +81,9 @@ export default function Sidebar() {
                   <Link
                     key={item.title}
                     href={item.href}
-                    onClick={() => setActiveItem(item.title)}
                     className={cn(
                       "rounded-lg px-3 py-1.5 text-[14px] font-medium tracking-wide",
-                      activeItem === item.title
+                      activeItem === item.href
                         ? "bg-neutral-200/80 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100"
                         : "text-neutral-500 hover:text-neutral-800 dark:hover:bg-neutral-800 dark:text-neutral-500 dark:hover:text-neutral-200 hover:bg-neutral-200",
                     )}
@@ -108,10 +110,9 @@ export default function Sidebar() {
                   <Link
                     key={item.title}
                     href={item.href}
-                    onClick={() => setActiveItem(item.title)}
                     className={cn(
                       "rounded-lg px-3 py-1.5 text-[14px] font-medium tracking-wide",
-                      activeItem === item.title
+                      activeItem === item.href
                         ? "bg-neutral-200/80 text-neutral-900 dark:bg-neutral-900 dark:text-neutral-100"
                         : "text-neutral-500 hover:text-neutral-800 dark:hover:bg-neutral-800 dark:text-neutral-500 dark:hover:text-neutral-200 hover:bg-neutral-200",
                     )}

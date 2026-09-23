@@ -1,3 +1,5 @@
+
+
 import {
   MosiacCitations,
   Source,
@@ -42,7 +44,7 @@ const sources: SourceData[] = [
   },
 ];
 
-export default function Play() {
+export default function CitationsDemo() {
   return (
     <div className="flex min-h-screen items-center justify-center">
       <MosiacCitations sources={sources}>

@@ -69,7 +69,7 @@ export default function Footer() {
               <RiTwitterXFill className="size-4" />
             </Link>
             <span>
-              <UseToggleTheme />
+              <UseToggleTheme showLabel={false}/>
             </span>
           </div>
         </div>

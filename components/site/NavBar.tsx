@@ -4,11 +4,14 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { IoMenu } from "react-icons/io5";
 import CommandMenu from "./CommandMenu";
+import UseToggleTheme from "@/hooks/UseToggleTheme";
 
 type label = {
   label: string;
   href: string;
+  icon?: React.ReactNode;
 };
+
 const labels: label[] = [
   { label: "Github", href: "https://github.com/rithwiksagar/Mosaic" },
   { label: "Docs", href: "/docs/introduction" },
@@ -115,7 +118,10 @@ function Menu({ labels }: { labels: label[] }) {
                 {item.label}
               </Link>
             ))}
-            <div className="border-t py-1.5 dark:text-neutral-800 text-neutral-200"/>
+            <div className="py-2.5 px-3">
+              <UseToggleTheme showLabel={true} />
+            </div>
+            <div className="border-t py-1.5 dark:text-neutral-800 text-neutral-200" />
             <CommandMenu />
           </motion.div>
         )}

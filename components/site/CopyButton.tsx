@@ -1,10 +1,11 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { CircleCheck, Copy } from "lucide-react";
 import { easeOut, motion } from "motion/react";
 import { useState } from "react";
 
-export function CopyButton({ content }: { content: string }) {
+export function CopyButton({ copy, className }: { copy: string, className?: string }) {
   const [copied, setCopied] = useState(false);
   return (
     <motion.button
@@ -18,16 +19,16 @@ export function CopyButton({ content }: { content: string }) {
         ease: easeOut,
       }}
       onClick={async () => {
-        await navigator.clipboard.writeText(content);
+        await navigator.clipboard.writeText(copy);
         setCopied(true);
         setTimeout(() => {
           setCopied(false);
         }, 3000);
       }}
-      className="p-1.5 rounded-md"
+      className={cn(className)}
     >
       {!copied && (
-        <Copy className="size-4 text-neutral-500 hover:text-neutral-600 dark:hover:text-neutral-300 cursor-pointer" />
+        <Copy className="p-2 size-8 text-neutral-500 hover:text-neutral-600 dark:hover:text-neutral-300 cursor-pointer" />
       )}
       {copied && (
         <CircleCheck className="size-4.5 text-neutral-600 dark:text-neutral-300 cursor-pointer" />
