@@ -1,3 +1,4 @@
+import { componentCatalog } from "@/catalog/components";
 import CodeFile from "@/components/code/CodeFile";
 import CommandBlock from "@/components/code/CommandBlock";
 import LibsFile from "@/components/code/LibsFile";
@@ -5,20 +6,29 @@ import ComponentPreview from "@/components/docs/ComponentPreview";
 import PropsTable from "@/components/docs/PropsTable";
 import GetFileContent from "@/lib/getFileContent";
 import { MosaicPromptBarDemo } from "@/registry/new-york/examples/prompt-bar/MosaicPromptBarDemo";
+import { notFound } from "next/navigation";
 
-export default async function Page() {
-  const Usagecode = await GetFileContent(
-    "examples/prompt-bar/MosaicPromptBarDemo.tsx",
-  );
-  const componentCode = await GetFileContent(
-    "components/prompt-bar/MosaicPromptBar.tsx",
-  );
+export default async function DocsPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+
+  const { slug } = await params;
+
+  const component = componentCatalog.find((comp)=> comp.slug === slug);
+
+  if(!component){
+    notFound();
+  }
+  const Usagecode = await GetFileContent(component.examplePath);
+  const componentCode = await GetFileContent(component.filePath);
   return (
     <div className="w-full min-w-0 px-3 sm:px-5 md:px-8 prose-p:tracking-tight prose-p:font-normal">
       <div>
-        <h1 className="mb-2 text-2xl sm:mb-3 sm:text-3xl">Prompt Bar</h1>
+        <h1 className="mb-2 text-2xl sm:mb-3 sm:text-3xl">{component.name}</h1>
         <p className="mt-0 max-w-2xl text-sm sm:text-base">
-          Highly customizable prompt bar with / command access
+          {component.description}
         </p>
       </div>
 
@@ -28,7 +38,7 @@ export default async function Page() {
         <h6 className="text-base font-medium text-neutral-700 dark:text-neutral-300 sm:text-lg">
           Install using CLI
         </h6>
-        <CommandBlock command="https://mosaic-ui.dev/r/prompt-bar.json" />
+        <CommandBlock command={component.registryUrl} />
       </section>
 
       <section className="mt-8 sm:mt-10">
@@ -36,7 +46,7 @@ export default async function Page() {
           Install manually
         </h6>
         <LibsFile />
-        <CodeFile filePath="" code={componentCode} />
+        <CodeFile filePath={`components/ui/${component.filePath.split('/').pop()}`} code={componentCode} />
       </section>
 
       <PropsTable

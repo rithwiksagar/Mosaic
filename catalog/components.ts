@@ -9,9 +9,9 @@ export const componentCatalog: CatalogItem[] = [
     category: "component",
     registryUrl: "https://mosaic-ui.com/r/prompt-bar.json",
     filePath:
-      "registry/new-york/components/prompt-bar/prompt-bar.tsx",
+      "registry/new-york/components/prompt-bar/MosaicPromptBar.tsx",
     examplePath:
-      "registry/new-york/examples/prompt-bar/PromptBarDemo.tsx",
+      "registry/new-york/examples/prompt-bar/MosaicPromptBarDemo.tsx",
     videoPath: "/previewVideos/PromptBar.webm",
   },
 
@@ -23,7 +23,7 @@ export const componentCatalog: CatalogItem[] = [
     category: "component",
     registryUrl: "https://mosaic-ui.com/r/text-actions.json",
     filePath:
-      "registry/new-york/components/text-actions/text-actions.tsx",
+      "registry/new-york/components/text-actions/TextActions.tsx",
     examplePath:
       "registry/new-york/examples/text-actions/TextActionsDemo.tsx",
     videoPath: "/previewVideos/TextActions.webm",
@@ -37,7 +37,7 @@ export const componentCatalog: CatalogItem[] = [
     category: "component",
     registryUrl: "https://mosaic-ui.com/r/prompt-launcher.json",
     filePath:
-      "registry/new-york/components/prompt-launcher/prompt-launcher.tsx",
+      "registry/new-york/components/prompt-launcher/PromptLauncher.tsx",
     examplePath:
       "registry/new-york/examples/prompt-launcher/PromptLauncherDemo.tsx",
     videoPath: "/previewVideos/AskAI001.webm",
@@ -51,7 +51,7 @@ export const componentCatalog: CatalogItem[] = [
     category: "component",
     registryUrl: "https://mosaic-ui.com/r/prompt-trigger.json",
     filePath:
-      "registry/new-york/components/prompt-trigger/prompt-trigger.tsx",
+      "registry/new-york/components/prompt-trigger/PromptTrigger.tsx",
     examplePath:
       "registry/new-york/examples/prompt-trigger/PromptTriggerDemo.tsx",
     videoPath: "/previewVideos/AskAI002.webm",
@@ -65,7 +65,7 @@ export const componentCatalog: CatalogItem[] = [
     category: "component",
     registryUrl: "https://mosaic-ui.com/r/citations.json",
     filePath:
-      "registry/new-york/components/citations/citations.tsx",
+      "registry/new-york/components/citations/Citations.tsx",
     examplePath:
       "registry/new-york/examples/citations/CitationsDemo.tsx",
     videoPath: "/previewVideos/Citations.webm",
@@ -79,7 +79,7 @@ export const componentCatalog: CatalogItem[] = [
     category: "component",
     registryUrl: "https://mosaic-ui.com/r/response-streaming.json",
     filePath:
-      "registry/new-york/components/response-streaming/response-streaming.tsx",
+      "registry/new-york/components/response-streaming/ResponseStreaming.tsx",
     examplePath:
       "registry/new-york/examples/response-streaming/ResponseStreamingDemo.tsx",
     videoPath:""

@@ -15,7 +15,7 @@ type label = {
 const labels: label[] = [
   { label: "Github", href: "https://github.com/rithwiksagar/Mosaic" },
   { label: "Docs", href: "/docs/introduction" },
-  { label: "Components", href: "/components" },
+  { label: "Components", href: "/docs/prompt-bar" },
 ];
 
 export default function NavBar() {
