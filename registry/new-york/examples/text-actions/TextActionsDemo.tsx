@@ -6,7 +6,7 @@ import { useState } from "react";
 const Message = `Somewhere, right now, a person is looking at the same moon you are, even though you may never meet. They might be celebrating something, worrying about tomorrow, listening to music, or simply staring out a window.It’s strange how enormous the world is, yet tiny moments can connect people without either of them knowing. A song, a smell after rain, an old photograph, or even the moon can become a quiet reminder that everyone is carrying a story you’ll probably never hear.And maybe that’s what makes ordinary life so interesting: there are billions of stories happening simultaneously, most of them completely invisible to us.And maybe that’s what makes ordinary life so interesting: there are billions of stories happening simultaneously, most of them completely invisible to us.
 `;
 
-export default function TextActionsDemo() {
+export function TextActionsDemo() {
   const [value, setValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 

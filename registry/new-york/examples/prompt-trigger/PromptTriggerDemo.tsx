@@ -4,7 +4,7 @@
 import { useState } from "react";
 import { PromptTrigger, PromptTriggerActions, PromptTriggerAttachments, PromptTriggerButton, PromptTriggerPromptBar, PromptTriggerSubmit, PromptTriggerTextarea } from "../../components/prompt-trigger/PromptTrigger";
 
-export default function MosaicPromptButton() {
+export function PromptTriggerDemo() {
   const [value, setValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const onSubmit = () => {

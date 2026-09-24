@@ -5,7 +5,7 @@ import LibsFile from "@/components/code/LibsFile";
 import ComponentPreview from "@/components/docs/ComponentPreview";
 import PropsTable from "@/components/docs/PropsTable";
 import GetFileContent from "@/lib/getFileContent";
-import { MosaicPromptBarDemo } from "@/registry/new-york/examples/prompt-bar/MosaicPromptBarDemo";
+import { exampleRegistry } from "@/registry/new-york/examples";
 import { notFound } from "next/navigation";
 
 export default async function DocsPage({
@@ -15,14 +15,13 @@ export default async function DocsPage({
 }) {
 
   const { slug } = await params;
-
   const component = componentCatalog.find((comp)=> comp.slug === slug);
-
   if(!component){
     notFound();
   }
   const Usagecode = await GetFileContent(component.examplePath);
   const componentCode = await GetFileContent(component.filePath);
+  const componentPreview = exampleRegistry[slug as keyof typeof exampleRegistry]
   return (
     <div className="w-full min-w-0 px-3 sm:px-5 md:px-8 prose-p:tracking-tight prose-p:font-normal">
       <div>
@@ -32,7 +31,7 @@ export default async function DocsPage({
         </p>
       </div>
 
-      <ComponentPreview component={MosaicPromptBarDemo} code={Usagecode} />
+      <ComponentPreview component={componentPreview} code={Usagecode} />
 
       <section className="mt-8 sm:mt-10">
         <h6 className="text-base font-medium text-neutral-700 dark:text-neutral-300 sm:text-lg">

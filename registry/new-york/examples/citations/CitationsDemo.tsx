@@ -40,7 +40,7 @@ const sources: SourceData[] = [
   },
 ];
 
-export default function CitationsDemo() {
+export function CitationsDemo() {
   return (
     <div className="flex min-h-screen items-center justify-center">
       <Citations sources={sources}>

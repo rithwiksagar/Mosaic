@@ -9,7 +9,7 @@ import {
 } from "@/registry/new-york/components/prompt-launcher/PromptLauncher";
 import { useState } from "react";
 
-export default function MosaicPromptButton001() {
+export function PromptLauncherDemo() {
   const [value, setValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const onSubmit = () => {
