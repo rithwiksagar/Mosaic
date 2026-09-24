@@ -10,10 +10,12 @@ export const cn = (...inputs: ClassValue[]) => {
 
 export default function LibsFile() {
   return (
-    <div className="flex flex-col h-67 w-full bg-neutral-200/70 dark:bg-neutral-900 rounded-2xl mt-4 p-2">
-      <div className="flex items-center gap-3 py-1 px-4">hello</div>
-      <div className="relative bg-white dark:bg-neutral-950 flex-1 px-4 rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]">
-        <div className="text-neutral-600 font-mono w-full">
+    <div className="mt-4 flex h-44 md:h-56 w-full flex-col rounded-2xl bg-neutral-200/70 p-2 dark:bg-neutral-900 sm:h-67">
+      <div className="flex items-center gap-3 px-2 py-1 text-xs sm:px-4 sm:text-sm">
+        hello
+      </div>
+      <div className="relative flex-1 overflow-hidden rounded-xl bg-white px-2 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] dark:bg-neutral-950 sm:px-4">
+        <div className="w-full overflow-auto font-mono text-[14px] text-neutral-600">
           <CodeBlock code={code} />
         </div>
         <CopyButton copy={code} className="absolute top-4 right-4" />

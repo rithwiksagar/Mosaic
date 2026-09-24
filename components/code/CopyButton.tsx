@@ -5,7 +5,13 @@ import { CircleCheck, Copy } from "lucide-react";
 import { easeOut, motion } from "motion/react";
 import { useState } from "react";
 
-export function CopyButton({ copy, className }: { copy: string, className?: string }) {
+export function CopyButton({
+  copy,
+  className,
+}: {
+  copy: string;
+  className?: string;
+}) {
   const [copied, setCopied] = useState(false);
   return (
     <motion.button
@@ -31,7 +37,7 @@ export function CopyButton({ copy, className }: { copy: string, className?: stri
         <Copy className="p-2 size-8 text-neutral-500 hover:text-neutral-600 dark:hover:text-neutral-300 cursor-pointer" />
       )}
       {copied && (
-        <CircleCheck className="size-4.5 text-neutral-600 dark:text-neutral-300 cursor-pointer" />
+        <CircleCheck className="p-2 size-8 text-neutral-600 dark:text-neutral-300 cursor-pointer" />
       )}
     </motion.button>
   );

@@ -17,18 +17,18 @@ export default function ComponentPreview({
   const Component = component;
 
   return (
-    <div className="relative left-1/2 w-60 -translate-x-1/2 sm:w-70 md:w-120 lg:w-196 max-w-4xl h-220 md:h-260 bg-neutral-200 rounded-xl p-2.5 grid grid-rows-2 gap-2 min-h-0 dark:bg-neutral-800/80">
+    <div className="not-prose relative mx-auto grid h-200 w-full max-w-5xl grid-rows-2 gap-2 overflow-hidden rounded-xl bg-neutral-200 p-2.5 dark:bg-neutral-800/80 sm:min-h-152 md:h-260">
       <div
         className={cn(
-          "bg-background rounded-2xl flex items-center justify-center dark:bg-neutral-950 shadow-[0_3px_10px_rgb(0,0,0,0.2)]",
+          "min-w-0 overflow-x-auto rounded-2xl bg-background p-2 dark:bg-neutral-950 shadow-[0_3px_10px_rgb(0,0,0,0.2)]",
           classname,
         )}
       >
         {<Component />}
       </div>
 
-      <div className="relative bg-background rounded-xl overflow-hidden min-h-0 dark:bg-neutral-950 shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
-        <div className="overflow-y-auto h-full min-h-0">
+      <div className="relative min-h-0 min-w-0 overflow-hidden rounded-xl bg-background dark:bg-neutral-950 shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
+        <div className="h-full min-h-0 overflow-auto text-[12px] p-2">
           <CodeBlock code={code} />
         </div>
 

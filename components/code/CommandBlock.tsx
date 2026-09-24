@@ -45,14 +45,14 @@ export default function CommandBlock({ command }: { command: string }) {
   );
 
   return (
-    <div className="flex flex-col h-36 w-full bg-neutral-200/70 dark:bg-neutral-900 rounded-2xl mt-4">
-      <div className="flex items-center gap-3 pt-4 pb-2 px-4">
+    <div className="mt-4 flex h-28 w-full flex-col rounded-2xl bg-neutral-200/70 dark:bg-neutral-900 sm:h-36">
+      <div className="flex items-center gap-2 px-3 pb-2 pt-3 text-xs sm:gap-3 sm:px-4 sm:pt-4 sm:text-sm">
         {packageManagers.map(
           ({ name, icon: Icon, color, command: getCommand }) => (
             <button
               key={name}
               type="button"
-              className="flex items-center gap-1"
+              className="flex shrink-0 items-center gap-1"
               onClick={() => setSelectedCommand(getCommand(command))}
             >
               <Icon color={color} />
@@ -61,11 +61,11 @@ export default function CommandBlock({ command }: { command: string }) {
           ),
         )}
       </div>
-      <div className="bg-white dark:bg-neutral-950 flex items-center justify-between flex-1 m-1.5 px-4 rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]">
-        <div className="text-neutral-600 font-mono dark:text-neutral-400">
+      <div className="m-1.5 flex min-w-0 flex-1 items-center justify-between rounded-xl bg-white px-3 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] dark:bg-neutral-950 sm:px-4">
+        <div className="min-w-0 overflow-x-auto [scrollbar-width:none] whitespace-nowrap font-mono text-xs text-neutral-600 dark:text-neutral-400 sm:text-sm">
           {selectedCommand}
         </div>
-        <CopyButton copy={selectedCommand} />
+        <CopyButton copy={selectedCommand} className="shrink-0" />
       </div>
     </div>
   );

@@ -15,13 +15,13 @@ export default function PropsTable({ title, data }: PropsTableProps) {
 
   return (
     <div className="mt-10">
-      <h6 className="mb-1 text-md font-semibold font-mono text-neutral-700 cdark:text-neutral-300">
+      <h6 className="mb-1 text-md font-semibold font-mono text-neutral-700 dark:text-neutral-300">
         {title}
       </h6>
 
       <div className="overflow-x-auto">
         <div className="inline-block rounded-lg border border-neutral-300 dark:border-neutral-700">
-          <table className="w-191 border-collapse text-left">
+          <table className="w-198 border-collapse text-left">
             <thead className="border-b bg-muted/40 dark:bg-neutral-900">
               <tr>
                 <th className="px-4 py-3 text-sm font-semibold">Prop</th>
