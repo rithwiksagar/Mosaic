@@ -6,23 +6,11 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { FiSidebar } from "react-icons/fi";
 import { usePathname } from "next/navigation";
+import { componentCatalog } from "@/catalog/components";
 
 const gettingStarted = [
   { title: "Introduction", href: "/docs/introduction" },
   { title: "Installation", href: "/docs/installation" },
-];
-
-const components = [
-  { title: "Mosaic Prompt Bar", href: "/docs/mosaic-promptbar" },
-  { title: "Text Actions", href: "/docs/text-actions" },
-  { title: "Prompt Button 001", href: "/docs/prompt-button-001" },
-  { title: "Prompt Button 002", href: "/docs/prompt-button-002" },
-  { title: "Citations", href: "/docs/citations" },
-  { title: "Shimmering Text", href: "/docs/shimmering-text" },
-  { title: "With Attachments", href: "/docs/attachments" },
-  { title: "Streaming Output", href: "/docs/streaming-output" },
-  { title: "Error Message", href: "/docs/error-message" },
-  { title: "Expandable Input", href: "/docs/expandable-input" },
 ];
 
 export default function DocsSidebar() {
@@ -101,23 +89,23 @@ export default function DocsSidebar() {
                 </h2>
 
                 <span className="rounded-lg bg-sky-100 dark:bg-sky-500 px-2 py-0.5 text-xs text-sky-600 dark:text-sky-100">
-                  {components.length}
+                  {componentCatalog.length}
                 </span>
               </div>
 
               <div className="flex flex-col">
-                {components.map((item) => (
+                {componentCatalog.map((item) => (
                   <Link
-                    key={item.title}
-                    href={item.href}
+                    key={item.slug}
+                    href={item.slug}
                     className={cn(
                       "rounded-lg px-3 py-1.5 text-[14px] font-medium tracking-wide",
-                      activeItem === item.href
+                      activeItem === item.slug
                         ? "bg-neutral-200/80 text-neutral-900 dark:bg-neutral-900 dark:text-neutral-100"
                         : "text-neutral-500 hover:text-neutral-800 dark:hover:bg-neutral-800 dark:text-neutral-500 dark:hover:text-neutral-200 hover:bg-neutral-200",
                     )}
                   >
-                    {item.title}
+                    {item.name}
                   </Link>
                 ))}
               </div>

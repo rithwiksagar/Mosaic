@@ -1,16 +1,13 @@
+import { componentCatalog } from "@/catalog/components";
 import UseToggleTheme from "@/hooks/UseToggleTheme";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
 import { RiTwitterXFill } from "react-icons/ri";
 
-const componentLinks = [
-  { label: "Prompt Bar", href: "/playground/001" },
-  { label: "Text Actions", href: "/playground/002" },
-  { label: "Citations", href: "/playground/003" },
-  { label: "Ask AI 001", href: "/playground/00" },
-  { label: "Ask AI 002", href: "/playground/" },
-  { label: "Streaming Text", href: "/playground/004" },
-];
+const componentLinks = componentCatalog.map((component) => ({
+  label: component.name,
+  href: `docs/${component.slug}`,
+}));
 
 const pageLinks = [
   { label: "About", href: "/about" },
@@ -24,8 +21,8 @@ const resourceLinks = [
   { label: "Documentation", href: "/docs/introduction" },
   { label: "Quick Start", href: "/docs/quick-start" },
   { label: "Try AI", href: "/try-ai" },
-  { label: "GitHub", href: "https://github.com/rithwiksagar/Mosaic"},
-  { label: "X", href: "https://x.com/rithwiksagarr"},
+  { label: "GitHub", href: "https://github.com/rithwiksagar/Mosaic" },
+  { label: "X", href: "https://x.com/rithwiksagarr" },
 ];
 
 const linkClassName =
@@ -69,7 +66,7 @@ export default function Footer() {
               <RiTwitterXFill className="size-4" />
             </Link>
             <span>
-              <UseToggleTheme showLabel={false}/>
+              <UseToggleTheme showLabel={false} />
             </span>
           </div>
         </div>

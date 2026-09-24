@@ -6,6 +6,7 @@ import { TbCircleDotted } from "react-icons/tb";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import { AnimatePresence, easeOut, motion } from "motion/react";
+import { componentCatalog } from "@/catalog/components";
 
 const menuItems = [
   {
@@ -18,18 +19,7 @@ const menuItems = [
   },
   {
     label: "Components",
-    items: [
-      { title: "Mosaic Prompt Bar", href: "/docs/mosaic-promptbar" },
-      { title: "Text Actions", href: "/docs/text-actions" },
-      { title: "Prompt Button 001", href: "/docs/prompt-button-001" },
-      { title: "Prompt Button 002", href: "/docs/prompt-button-002" },
-      { title: "Citations", href: "/docs/citations" },
-      { title: "Shimmering Text", href: "/docs/shimmering-text" },
-      { title: "With Attachments", href: "/docs/attachments" },
-      { title: "Streaming Output", href: "/docs/streaming-output" },
-      { title: "Error Message", href: "/docs/error-message" },
-      { title: "Expandable Input", href: "/docs/expandable-input" },
-    ],
+    items: componentCatalog.map((component)=> ({title: component.name, href: `/docs/${component.slug}`}))
   },
   {
     label: "Pages",

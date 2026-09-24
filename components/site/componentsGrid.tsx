@@ -1,39 +1,9 @@
-import { component } from "@/types/component";
+
+import { componentCatalog } from "@/catalog/components";
 import ComponentCard from "./ComponentCard";
 
 
-const Components: component[] = [
-  {
-    title: "Mosaic Prompt Bar",
-    description: "Access AI tools with the / command.",
-    videoPath: "/previewVideos/PromptBar.webm",
-    href: "/docs/mosaic-promptbar"
-  },
-  {
-    title: "Text Actions",
-    description: "Select text to access actions like add to chat or ask AI.",
-    videoPath: "/previewVideos/TextActions.webm",
-    href: "/docs/text-actions"
-  },
-  {
-    title: "Prompt Button 001",
-    description: "Expand a button into a full AI prompt bar.",
-    videoPath: "/previewVideos/AskAI001.webm",
-    href: "/docs/prompt-button-001"
-  },
-  {
-    title: "Ask AI 002",
-    description: "Ask AI with support for file attachments.",
-    videoPath: "/previewVideos/AskAI002.webm",
-    href: "/docs/prompt-button-002"
-  },
-  {
-    title: "Citations",
-    description: "Interactive citations for exploring AI-generated sources.",
-    videoPath: "/previewVideos/Citations.webm",
-    href: "/docs/citations"
-  },
-];
+
 
 export default function ComponentsGrid() {
   return (
@@ -46,7 +16,7 @@ export default function ComponentsGrid() {
         <span className="block">Distributed Via Shadcn</span>
       </h6>
       <div className="mt-8 mb-2 mx-1 grid grid-cols-1 md:grid-cols-3 gap-2">
-          {Components.map((component, index)=>(
+          {componentCatalog.map((component, index)=>(
             <div key={index}>
             <ComponentCard {...component}/>
             </div>

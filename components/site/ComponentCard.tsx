@@ -1,15 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { component } from "@/types/component";
 import { motion } from "motion/react";
 import { useRouter } from "next/navigation";
+import { CatalogItem } from "@/types/catalogItem";
 
+type component = Pick<CatalogItem, "name" | "description" | "videoPath" | "slug">
 export default function ComponentCard({
-  title,
+  name,
   description,
   videoPath,
-  href,
+  slug,
 }: component) {
   const [isHovered, setIsHovered] = useState(false);
   const router = useRouter();
@@ -17,7 +18,7 @@ export default function ComponentCard({
     <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      onClick={()=> router.push(href)}
+      onClick={()=> router.push(`/docs/${slug}`)}
       className="relative w-full h-64 rounded-2xl bg-neutral-200/30 border border-neutral-200 dark:border-neutral-800 dark:bg-neutral-900 overflow-hidden cursor-pointer"
     >
       <motion.div
@@ -47,7 +48,7 @@ export default function ComponentCard({
         className="absolute left-4 right-2 bottom-2 h-12 flex flex-col justify-center px-1"
       >
         <h6 className="text-sm font-medium text-neutral-600 dark:text-neutral-300 truncate">
-          {title}
+          {name}
         </h6>
         <p className="text-xs text-neutral-400 dark:text-neutral-600 truncate">
           {description}

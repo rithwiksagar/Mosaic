@@ -118,7 +118,7 @@ function Menu({ labels }: { labels: label[] }) {
                 {item.label}
               </Link>
             ))}
-            <div className="py-2.5 px-3">
+            <div className="py-2.5 px-3 flex-1">
               <UseToggleTheme showLabel={true} />
             </div>
             <div className="border-t py-1.5 dark:text-neutral-800 text-neutral-200" />
