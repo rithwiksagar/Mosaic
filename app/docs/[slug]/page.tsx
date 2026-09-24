@@ -46,7 +46,7 @@ export default async function DocsPage({
           Install manually
         </h6>
         <LibsFile />
-        <CodeFile filePath={`components/ui/${component.filePath.split('/').pop()}`} code={componentCode} />
+        <CodeFile filePath={component.filePath} code={componentCode} />
       </section>
 
       <PropsTable
