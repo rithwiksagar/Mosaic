@@ -19,8 +19,8 @@ export function TextActionsDemo() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="max-w-3xl relative text-justify text-xl whitespace-pre-wrap mask-[linear-gradient(to_bottom,black_0%,black_5%,transparent_100%)]">
+    <div className="relative flex h-full min-h-0 w-full items-center justify-center overflow-hidden">
+      <div className="relative max-h-full max-w-3xl overflow-hidden px-2 text-justify text-[14px] lg:text-[16px] text-xl whitespace-pre-wrap mask-[linear-gradient(to_bottom,black_0%,black_55%,transparent_100%)] lg:px-8">
         <TextActions
           actions={[
             {
@@ -40,19 +40,19 @@ export function TextActionsDemo() {
           {Message}
         </TextActions>
       </div>
-      <div className="bg-neutral-100 border border-neutral-200 fixed bottom-10 left-50% flex w-xl h-12 items-center rounded-full px-2 py-2.5">
+      <div className="absolute bottom-6 left-1/2 flex h-12 w-[calc(100%-2rem)] max-w-xl -translate-x-1/2 items-center rounded-full border border-neutral-200 bg-neutral-100 px-2 py-2.5">
         <textarea
           value={value}
           placeholder="Ask me anything..."
           onChange={(e) => setValue(e.target.value)}
           onSubmit={() => handleSubmit(value)}
-          className="h-8 flex-1 self-center resize-none py-1 px-2.5 outline-none placeholder:text-neutral-300 overflow-hidden"
+          className="h-7 min-w-0 flex-1 self-center resize-none overflow-hidden px-2.5 text-left outline-none placeholder:text-neutral-300"
         ></textarea>
         <button
           type="button"
           onClick={() => handleSubmit(value)}
           disabled={isLoading}
-          className="flex size-8 items-center justify-center rounded-full bg-black p-1 text-white disabled:cursor-not-allowed"
+          className="flex size-8 items-center justify-center rounded-full bg-sky-500 text-white disabled:cursor-not-allowed"
         >
           {isLoading ? (
             <Square className="size-4 fill-white" />

@@ -45,7 +45,7 @@ export default function DocsSidebar() {
     <div ref={sidebarRef}>
       <button
         onClick={() => setIsOpen((c) => !c)}
-        className="fixed top-6 left-2 md:left-10 z-[9999] rounded-xl bg-muted hover:bg-neutral-200 cursor-pointer p-2.5 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-neutral-200"
+        className="fixed top-6 left-2 md:left-10 z-9999 rounded-xl bg-muted hover:bg-neutral-200 cursor-pointer p-2.5 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-neutral-200"
       >
         <FiSidebar className="size-4 md:size-5" />
       </button>
@@ -56,7 +56,7 @@ export default function DocsSidebar() {
             animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
             exit={{ opacity: 0, x: -20, filter: "blur(2px)" }}
             transition={{ duration: 0.15, ease: easeOut }}
-            className="fixed top-20 left-2 md:left-10 z-[9999] w-64 bg-muted dark:bg-neutral-900 px-4 py-16 rounded-2xl"
+            className="fixed top-20 left-2 md:left-10 z-9999 w-64 bg-muted dark:bg-neutral-900 px-4 py-16 rounded-2xl"
           >
             <section className="mb-10">
               <h2 className="mb-2 px-2 text-[12px] font-medium uppercase tracking-wide text-neutral-700 dark:text-neutral-500">
