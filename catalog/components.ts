@@ -1,4 +1,4 @@
-import { CatalogItem } from "@/types/catalogItem";
+import { CatalogItem } from "@/types/CatalogItem";
 
 export const componentCatalog: CatalogItem[] = [
   {
