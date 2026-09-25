@@ -54,9 +54,7 @@ type PromptBarContextType = {
   filteredTools: Tool[];
 };
 
-const PromptBarContext = createContext<PromptBarContextType | null>(
-  null,
-);
+const PromptBarContext = createContext<PromptBarContextType | null>(null);
 
 const useMosaicContext = () => {
   const context = useContext(PromptBarContext);
@@ -110,7 +108,7 @@ function PromptBar({
     >
       <div
         className={cn(
-          "p-2 rounded-3xl border border-white/30 bg-white/10 backdrop-blur-sm shadow-md",
+          "p-1 lg:p-2 rounded-2xl lg:rounded-3xl border border-white/30 bg-white/10 backdrop-blur-sm shadow-md",
           className,
         )}
       >
@@ -182,7 +180,8 @@ function ToolItem({
       }}
       onClick={() => {
         setPayload((prev) => ({
-          prompt: slashIndex === -1 ? prev.prompt : prev.prompt.slice(0, slashIndex),
+          prompt:
+            slashIndex === -1 ? prev.prompt : prev.prompt.slice(0, slashIndex),
           tool: id ?? null,
         }));
         setQuery("");
@@ -200,7 +199,7 @@ function ToolItem({
         <p className={cn("text-sm font-medium tracking-wide")}>{title}</p>
         <p
           className={cn(
-            "text-sm font-normal",
+            "hidden lg:block text-sm font-normal",
             index === selectedIndex ? "text-neutral-600" : "text-neutral-500",
           )}
         >
@@ -242,7 +241,7 @@ function PromptInput({
     <div
       ref={promptInputRef}
       className={cn(
-        "w-160 flex flex-col justify-between rounded-2xl border border-white/30 dark:border-neutral-700 bg-white/90 dark:bg-neutral-700 p-3 space-y-1 shadow",
+        "w-90 lg:w-160 flex flex-col justify-between rounded-2xl border border-white/30 dark:border-neutral-700 bg-white/90 dark:bg-neutral-700 p-3 space-y-1 shadow",
         className,
       )}
     >
@@ -317,7 +316,8 @@ function PromptInputTextArea({
       const selectedTool = filteredTools[selectedIndex];
       if (!selectedTool) return;
       setPayload((prev) => ({
-        prompt: slashIndex === -1 ? prev.prompt : prev.prompt.slice(0, slashIndex),
+        prompt:
+          slashIndex === -1 ? prev.prompt : prev.prompt.slice(0, slashIndex),
         tool: selectedTool.id,
       }));
       setQuery("");
@@ -559,8 +559,12 @@ function PromptInputSubmit({ className }: ActionProps) {
       <Square className="size-4 md:size-5 fill-white cursor-pointer text-white" />
     </div>
   ) : (
-    <button type="button" onClick={handleSubmit} disabled={!payload.prompt.trim()}>
-      <ArrowUp className="size-7 md:size-10 rounded-full bg-linear-to-r from-neutral-600 to-neutral-800 dark:from-neutral-100 dark:to-neutral-200 p-2 cursor-pointer text-white dark:text-black" />
+    <button
+      type="button"
+      onClick={handleSubmit}
+      disabled={!payload.prompt.trim()}
+    >
+      <ArrowUp className="size-8 md:size-10 rounded-full bg-linear-to-r from-neutral-600 to-neutral-800 dark:from-neutral-100 dark:to-neutral-200 p-2 cursor-pointer text-white dark:text-black" />
     </button>
   );
 }
