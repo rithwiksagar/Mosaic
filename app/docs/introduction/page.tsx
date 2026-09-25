@@ -1,6 +1,6 @@
 export default function Introduction() {
   return (
-    <div className="space-y-10">
+    <div className="space-y-10 px-6 lg:px-10">
       <div className="space-y-4">
         <h1 className="text-3xl">Introduction</h1>
 

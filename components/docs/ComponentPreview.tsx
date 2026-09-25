@@ -17,7 +17,7 @@ export default function ComponentPreview({
   const Component = component;
 
   return (
-    <div className="not-prose relative mx-auto grid h-200 w-full max-w-5xl grid-rows-2 gap-2 overflow-hidden rounded-xl bg-neutral-200 p-2.5 dark:bg-neutral-800/80 sm:min-h-152 md:h-260">
+    <div className="not-prose relative mx-auto grid h-200 w-full max-w-5xl grid-rows-2 gap-2 rounded-xl bg-neutral-200 p-2.5 dark:bg-neutral-800/80 sm:min-h-152 md:h-260 ">
       <div
         className={cn(
           "min-w-0 flex items-center justify-center rounded-2xl bg-background p-2 dark:bg-neutral-950 shadow-[0_3px_10px_rgb(0,0,0,0.2)]",

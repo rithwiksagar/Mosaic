@@ -2,7 +2,7 @@
 
 export default function Installation() {
   return (
-    <div>
+    <div className="px-6 lg:px-10">
       <h1>Installation</h1>
 
       <p>Get Mosiac set up in your project and start adding components.</p>
