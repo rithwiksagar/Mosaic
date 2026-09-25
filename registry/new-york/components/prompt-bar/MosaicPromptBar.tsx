@@ -241,7 +241,7 @@ function PromptInput({
     <div
       ref={promptInputRef}
       className={cn(
-        "w-90 lg:w-160 flex flex-col justify-between rounded-2xl border border-white/30 dark:border-neutral-700 bg-white/90 dark:bg-neutral-700 p-3 space-y-1 shadow",
+        "w-80 lg:w-160 flex flex-col justify-between rounded-2xl border border-white/30 dark:border-neutral-700 bg-white/90 dark:bg-neutral-700 p-3 space-y-1 shadow",
         className,
       )}
     >
@@ -443,7 +443,7 @@ function PromptInputTextArea({
       disabled={isLoading}
       placeholder={placeholder}
       className={cn(
-        "block min-h-18 w-full max-h-80 py-1 px-2 bg-transparent outline-none placeholder:text-neutral-400 dark:placeholder:text-neutral-400 outline-0 overflow-y-auto resize-none [scrollbar-width:none] leading-6",
+        "block min-h-9 lg:min-h-18 w-full max-h-80 py-1 px-2 bg-transparent outline-none placeholder:text-neutral-400 dark:placeholder:text-neutral-400 outline-0 overflow-y-auto resize-none [scrollbar-width:none] leading-6",
         "mask-[linear-gradient(to_bottom,transparent,black_4%,black_98%,transparent)] select-none",
         className,
       )}

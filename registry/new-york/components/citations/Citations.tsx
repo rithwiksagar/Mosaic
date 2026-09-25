@@ -156,7 +156,7 @@ function Source() {
                 transition: { duration: 0.1 },
               }}
               style={{ transformOrigin: "top left" }}
-              className="absolute left-0 top-19 z-20 w-84 overflow-hidden rounded-xl bg-white text-left dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800"
+              className="absolute -left-25 lg:left-0 top-19 z-20 w-84 overflow-hidden rounded-xl bg-white text-left dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800"
             >
               <div className="p-2 flex items-center justify-between rounded-t-xl bg-neutral-100  dark:bg-neutral-800">
                 <span className="px-2 text-[12px] font-medium tabular-nums text-neutral-500 dark:text-neutral-400">

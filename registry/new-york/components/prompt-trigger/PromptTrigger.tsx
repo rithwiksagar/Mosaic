@@ -103,7 +103,7 @@ function PromptTrigger({
           transition={{
             layout: { duration: 0.3, ease: [0.22, 1, 0.36, 1] },
           }}
-          style={{ width: isExpanded ? 400 : "auto" }}
+          style={{ width: isExpanded ? "min(500px, calc(100vw - 3.5rem))" : "auto" }}
           className={cn(
             "bg-neutral-100 dark:bg-neutral-800 dark:text-white font-medium shadow-[0_2px_4px_rgba(0,0,0,0.06),0_8px_20px_rgba(0,0,0,0.08)] dark:shadow-[0_2px_4px_rgba(0,0,0,0.2),0_8px_20px_rgba(0,0,0,0.25)]",
             multiLine ? "rounded-2xl" : "rounded-3xl",

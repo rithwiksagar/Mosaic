@@ -30,9 +30,14 @@ type PromptLauncherContextValue = Omit<PromptLauncherProps, "children"> & {
   textareaRef: React.RefObject<HTMLTextAreaElement | null>;
 };
 
-const transition: Transition<any> = { duration: 0.25, ease: [0.22, 1, 0.36, 1] };
+const transition: Transition<any> = {
+  duration: 0.25,
+  ease: [0.22, 1, 0.36, 1],
+};
 
-const PromptLauncherContext = createContext<PromptLauncherContextValue | null>(null);
+const PromptLauncherContext = createContext<PromptLauncherContextValue | null>(
+  null,
+);
 
 function useMosaicContext() {
   const context = useContext(PromptLauncherContext);
@@ -103,7 +108,9 @@ function PromptLauncher({
           transition={{
             layout: { duration: 0.25, ease: [0.22, 1, 0.36, 1] },
           }}
-          style={{ width: isExpanded ? 500 : "auto" }}
+          style={{
+            width: isExpanded ? "min(500px, calc(100vw - 2rem))" : "auto",
+          }}
           className={cn(
             "bg-neutral-100 dark:bg-neutral-800 dark:text-white font-medium pl-4 pr-3 py-2.5 shadow-[0_2px_4px_rgba(0,0,0,0.06),0_8px_20px_rgba(0,0,0,0.08)] dark:shadow-[0_2px_4px_rgba(0,0,0,0.2),0_8px_20px_rgba(0,0,0,0.25)]",
             multiLine ? "rounded-2xl" : "rounded-full",
@@ -119,8 +126,7 @@ function PromptLauncher({
 }
 
 function PromptLauncherButton({ className }: { className?: string }) {
-  const { setIsExpanded } = useMosaicContext
-();
+  const { setIsExpanded } = useMosaicContext();
 
   return (
     <button
@@ -131,14 +137,11 @@ function PromptLauncherButton({ className }: { className?: string }) {
       )}
       onClick={() => setIsExpanded(true)}
     >
-      <motion.span
-        layoutId="ask-ai"
-        transition={transition}
-      >
+      <motion.span layoutId="ask-ai" transition={transition}>
         Ask AI
       </motion.span>
       <motion.span layoutId="ask-ai-button" transition={transition}>
-      <AudioWaveform className="size-7 bg-blue-500 p-1 rounded-full text-neutral-100" />
+        <AudioWaveform className="size-7 bg-blue-500 p-1 rounded-full text-neutral-100" />
       </motion.span>
     </button>
   );
@@ -151,14 +154,11 @@ function PromptLauncherPromptBar({
   children: React.ReactNode;
   className?: string;
 }) {
-  const { isExpanded } = useMosaicContext
-();
+  const { isExpanded } = useMosaicContext();
   return (
     <AnimatePresence mode="popLayout">
       {isExpanded && (
-        <div className={cn("flex items-center", className)}>
-          {children}
-        </div>
+        <div className={cn("flex items-center", className)}>{children}</div>
       )}
     </AnimatePresence>
   );
@@ -166,8 +166,7 @@ function PromptLauncherPromptBar({
 
 function PromptLauncherTextarea({ className }: { className?: string }) {
   const { value, setValue, textareaRef, setMultiLine, onSubmit } =
-    useMosaicContext
-  ();
+    useMosaicContext();
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const textarea = textareaRef.current;
@@ -179,7 +178,7 @@ function PromptLauncherTextarea({ className }: { className?: string }) {
   };
 
   return (
-    <div className="relative">
+    <div className="min-w-0 flex-1 relative">
       <textarea
         ref={textareaRef}
         value={value}
@@ -191,7 +190,7 @@ function PromptLauncherTextarea({ className }: { className?: string }) {
           }
         }}
         className={cn(
-          "w-110 h-8 max-h-64 py-1.5 px-3 resize-none outline-none dark:text-neutral-100 overflow-y-scroll [scrollbar-width:none] mask-[linear-gradient(to_bottom,transparent,black_4%,black_98%,transparent)]",
+          "w-full min-w-0 h-8 max-h-64 py-1.5 px-3 resize-none outline-none dark:text-neutral-100 overflow-y-scroll [scrollbar-width:none] mask-[linear-gradient(to_bottom,transparent,black_4%,black_98%,transparent)]",
           className,
         )}
       />
@@ -209,27 +208,28 @@ function PromptLauncherTextarea({ className }: { className?: string }) {
 }
 
 function PromptLauncherSubmit({ className }: { className?: string }) {
-  const { isLoading, onSubmit, value } = useMosaicContext
-();
+  const { isLoading, onSubmit, value } = useMosaicContext();
 
   const handleSubmit = () => {
     if (!value.trim() || isLoading) return;
     onSubmit();
   };
 
-  return <motion.button
-          type="button"
-          layoutId="ask-ai-button"
-          transition={transition}
-          onClick={handleSubmit}
-          className={cn("bg-blue-500 rounded-full", className)}
-        >
-          {isLoading ? (
-            <Square className="size-4 md:size-8 fill-white cursor-pointer text-white p-2" />
-          ) : (
-            <ArrowUp className="size-7 md:size-8 cursor-pointer p-1.5 text-white" />
-          )}
-        </motion.button>
+  return (
+    <motion.button
+      type="button"
+      layoutId="ask-ai-button"
+      transition={transition}
+      onClick={handleSubmit}
+      className={cn("bg-blue-500 rounded-full", className)}
+    >
+      {isLoading ? (
+        <Square className="size-4 md:size-8 fill-white cursor-pointer text-white p-2" />
+      ) : (
+        <ArrowUp className="size-7 md:size-8 cursor-pointer p-1.5 text-white" />
+      )}
+    </motion.button>
+  );
 }
 
 export {
@@ -237,5 +237,5 @@ export {
   PromptLauncherButton,
   PromptLauncherPromptBar,
   PromptLauncherTextarea,
-  PromptLauncherSubmit
-}
+  PromptLauncherSubmit,
+};

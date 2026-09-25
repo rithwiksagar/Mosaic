@@ -70,7 +70,7 @@ function ResponseStreaming() {
 
   return (
     <div className="text-black">
-      <span>{response}</span>
+      <span className="text-[14px] lg:text-[16px]">{response}</span>
       <motion.span 
       key={newToken}
       initial={{filter:"opacity:0"}}
