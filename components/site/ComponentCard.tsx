@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 import { useRouter } from "next/navigation";
-import { CatalogItem } from "@/types/catalogItem";
+import { CatalogItem } from "@/types/CatalogItem";
 
 type component = Pick<CatalogItem, "name" | "description" | "videoPath" | "slug">
 export default function ComponentCard({
