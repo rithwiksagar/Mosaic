@@ -5,6 +5,7 @@ import { CgNpm } from "react-icons/cg";
 import { LiaYarn } from "react-icons/lia";
 import { SiBun, SiPnpm } from "react-icons/si";
 import { useState } from "react";
+import { motion } from "motion/react";
 import { CopyButton } from "./CopyButton";
 
 const packageManagers: {
@@ -40,23 +41,34 @@ const packageManagers: {
 ];
 
 export default function CommandBlock({ command }: { command: string }) {
+  const [currentPM, setCurrentPM] = useState("npm");
   const [selectedCommand, setSelectedCommand] = useState(
     packageManagers[0].command(command),
   );
 
   return (
-    <div className="mt-4 flex h-28 w-full flex-col rounded-2xl bg-neutral-200/70 dark:bg-neutral-900 sm:h-36">
+    <div className="mt-4 flex h-28 w-full flex-col rounded-2xl bg-neutral-200/30 dark:bg-neutral-900 sm:h-36">
       <div className="flex items-center gap-2 px-3 pb-2 pt-3 text-xs sm:gap-3 sm:px-4 sm:pt-4 sm:text-sm">
         {packageManagers.map(
           ({ name, icon: Icon, color, command: getCommand }) => (
             <button
               key={name}
               type="button"
-              className="flex shrink-0 items-center gap-1"
-              onClick={() => setSelectedCommand(getCommand(command))}
+              className="relative flex shrink-0 items-center gap-1 pb-1 cursor-pointer"
+              onClick={() => {
+                setCurrentPM(name);
+                setSelectedCommand(getCommand(command));
+              }}
             >
               <Icon color={color} />
               <span className="dark:text-neutral-400">{name}</span>
+              {currentPM === name && (
+                <motion.div
+                  layoutId="command-underline"
+                  className="absolute inset-x-0 -bottom-0.5 h-0.5 rounded-full bg-neutral-900 dark:bg-neutral-100"
+                  transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                />
+              )}
             </button>
           ),
         )}

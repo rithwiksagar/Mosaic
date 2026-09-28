@@ -10,7 +10,7 @@ export const cn = (...inputs: ClassValue[]) => {
 
 export default function LibsFile() {
   return (
-    <div className="mt-4 flex h-44 md:h-56 w-full flex-col rounded-2xl bg-neutral-200/70 p-2 dark:bg-neutral-900 sm:h-67">
+    <div className="mt-4 flex h-44 md:h-56 w-full flex-col rounded-2xl bg-neutral-200/30 p-2 dark:bg-neutral-900 sm:h-67">
       <div className="flex items-center gap-3 px-2 py-1 text-sm font-mono text-neutral-500 dark:text-neutral-400">
         lib/utils.tsx
       </div>

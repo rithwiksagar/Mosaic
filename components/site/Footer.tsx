@@ -19,7 +19,7 @@ const pageLinks = [
 
 const resourceLinks = [
   { label: "Documentation", href: "/docs/introduction" },
-  { label: "Quick Start", href: "/docs/quick-start" },
+  { label: "Quick Start", href: "/docs/installation" },
   { label: "Try AI", href: "/try-ai" },
   { label: "GitHub", href: "https://github.com/rithwiksagar/Mosaic" },
   { label: "X", href: "https://x.com/rithwiksagarr" },

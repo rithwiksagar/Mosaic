@@ -24,7 +24,7 @@ export default async function DocsPage({
   const componentPreview = exampleRegistry[slug as keyof typeof exampleRegistry]
   return (
     <div className="w-full min-w-0 px-3 sm:px-5 md:px-8 prose-p:tracking-tight prose-p:font-normal">
-      <div>
+      <div className="pl-2">
         <h1 className="mb-2 text-2xl sm:mb-3 sm:text-3xl">{component.name}</h1>
         <p className="mt-0 max-w-2xl text-sm sm:text-base">
           {component.description}

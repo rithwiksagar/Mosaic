@@ -11,7 +11,7 @@ export default function CodeFile({
   const fileName = filePath.split("/").pop();
 
   return (
-    <div className="mt-4 flex h-72 w-full flex-col rounded-2xl bg-neutral-200/70 p-2 dark:bg-neutral-900 sm:h-100">
+    <div className="mt-4 flex h-72 w-full flex-col rounded-2xl bg-neutral-200/30 p-2 dark:bg-neutral-900 sm:h-100">
       <div className="flex items-center gap-3 px-2 pb-2 pt-3">
         {fileName && (
           <span className="text-sm font-mono text-neutral-500 dark:text-neutral-400">
