@@ -50,6 +50,7 @@ function SidebarToggleIcon({
   );
 }
 
+const general = [{ title: "Home", href: "/" }];
 const gettingStarted = [
   { title: "Introduction", href: "/docs/introduction" },
   { title: "Installation", href: "/docs/installation" },
@@ -100,6 +101,27 @@ export default function DocsSidebar() {
             className="fixed left-1 top-0 bottom-0 z-9999 flex w-[min(18rem,calc(100vw-0.5rem))] flex-col overflow-hidden rounded-xl border border-neutral-200/50 bg-neutral-100 p-1 dark:border-neutral-800/70 dark:bg-neutral-900"
           >
             <div className="min-h-0 flex-1 overflow-y-auto pt-20">
+              <section className="mb-6">
+                <h2 className="mb-2 px-3 text-[12px] font-medium uppercase tracking-wider text-neutral-500 dark:text-neutral-500">
+                  General
+                </h2>
+                <div className="flex flex-col gap-2">
+                  {general.map((item) => (
+                    <Link
+                      key={item.title}
+                      href={item.href}
+                      onClick={() => {
+                        setIsSidebarOpen(false);
+                      }}
+                      className={cn(
+                        "rounded-lg px-3 py-1.5 text-[14px] font-normal tracking-wide text-neutral-500 hover:bg-neutral-200/60 hover:text-neutral-900 dark:hover:bg-neutral-800 dark:hover:text-neutral-200",
+                      )}
+                    >
+                      {item.title}
+                    </Link>
+                  ))}
+                </div>
+              </section>
               <section className="mb-10">
                 <h2 className="mb-2 px-3 text-[12px] font-medium uppercase tracking-wider text-neutral-500 dark:text-neutral-500">
                   Getting Started
