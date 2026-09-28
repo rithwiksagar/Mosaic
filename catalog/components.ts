@@ -7,9 +7,8 @@ export const componentCatalog: CatalogItem[] = [
     description:
       "A polished AI prompt input with slash commands for quickly switching between actions and tools.",
     category: "component",
-    registryUrl: "https://mosaic-ui.com/r/prompt-bar.json",
-    filePath:
-      "registry/new-york/components/prompt-bar/MosaicPromptBar.tsx",
+    registryUrl: "https://brainframeui.tech/r/prompt-bar.json",
+    filePath: "registry/new-york/components/prompt-bar/MosaicPromptBar.tsx",
     examplePath:
       "registry/new-york/examples/prompt-bar/MosaicPromptBarDemo.tsx",
     videoPath: "/previewVideos/PromptBar.webm",
@@ -21,11 +20,9 @@ export const componentCatalog: CatalogItem[] = [
     description:
       "A compact action bar for quickly copying and interacting with AI-generated text.",
     category: "component",
-    registryUrl: "https://mosaic-ui.com/r/text-actions.json",
-    filePath:
-      "registry/new-york/components/text-actions/TextActions.tsx",
-    examplePath:
-      "registry/new-york/examples/text-actions/TextActionsDemo.tsx",
+    registryUrl: "https://brainframeui.tech/r/text-actions.json",
+    filePath: "registry/new-york/components/text-actions/TextActions.tsx",
+    examplePath: "registry/new-york/examples/text-actions/TextActionsDemo.tsx",
     videoPath: "/previewVideos/TextActions.webm",
   },
 
@@ -35,9 +32,8 @@ export const componentCatalog: CatalogItem[] = [
     description:
       "A compact prompt launcher that expands horizontally from a button into an AI input.",
     category: "component",
-    registryUrl: "https://mosaic-ui.com/r/prompt-launcher.json",
-    filePath:
-      "registry/new-york/components/prompt-launcher/PromptLauncher.tsx",
+    registryUrl: "https://brainframeui.tech/r/prompt-launcher.json",
+    filePath: "registry/new-york/components/prompt-launcher/PromptLauncher.tsx",
     examplePath:
       "registry/new-york/examples/prompt-launcher/PromptLauncherDemo.tsx",
     videoPath: "/previewVideos/AskAI001.webm",
@@ -49,9 +45,8 @@ export const componentCatalog: CatalogItem[] = [
     description:
       "A button that smoothly transforms into a prompt input with support for file attachments.",
     category: "component",
-    registryUrl: "https://mosaic-ui.com/r/prompt-trigger.json",
-    filePath:
-      "registry/new-york/components/prompt-trigger/PromptTrigger.tsx",
+    registryUrl: "https://brainframeui.tech/r/prompt-trigger.json",
+    filePath: "registry/new-york/components/prompt-trigger/PromptTrigger.tsx",
     examplePath:
       "registry/new-york/examples/prompt-trigger/PromptTriggerDemo.tsx",
     videoPath: "/previewVideos/AskAI002.webm",
@@ -63,11 +58,9 @@ export const componentCatalog: CatalogItem[] = [
     description:
       "Animated citations with direction-aware transitions for smoothly navigating referenced content.",
     category: "component",
-    registryUrl: "https://mosaic-ui.com/r/citations.json",
-    filePath:
-      "registry/new-york/components/citations/Citations.tsx",
-    examplePath:
-      "registry/new-york/examples/citations/CitationsDemo.tsx",
+    registryUrl: "https://brainframeui.tech/r/citations.json",
+    filePath: "registry/new-york/components/citations/Citations.tsx",
+    examplePath: "registry/new-york/examples/citations/CitationsDemo.tsx",
     videoPath: "/previewVideos/Citations.webm",
   },
 
@@ -77,11 +70,11 @@ export const componentCatalog: CatalogItem[] = [
     description:
       "A smooth streaming text component for rendering AI responses as they arrive in real time.",
     category: "component",
-    registryUrl: "https://mosaic-ui.com/r/response-streaming.json",
+    registryUrl: "https://brainframeui.tech/r/response-streaming.json",
     filePath:
       "registry/new-york/components/response-streaming/ResponseStreaming.tsx",
     examplePath:
       "registry/new-york/examples/response-streaming/ResponseStreamingDemo.tsx",
-    videoPath:""
+    videoPath: "",
   },
-]
+];
