@@ -1,3 +1,4 @@
+import { DocsFooter } from "@/components/docs/DocsFooter";
 
 
 export default function Installation() {
@@ -65,6 +66,8 @@ export const cn = (...inputs: ClassValue[]) => {
         Once your project is ready, head over to the components and install
         whatever you need.
       </p>
+
+    <DocsFooter currentPage="installation"/>
     </div>
   );
 }

@@ -23,7 +23,6 @@ export default async function DocsPage({
   const Usagecode = await GetFileContent(component.examplePath);
   const componentCode = await GetFileContent(component.filePath);
   const componentPreview = exampleRegistry[slug as keyof typeof exampleRegistry]
-  const currentPage = component.id;
   return (
     <div className="w-full min-w-0 px-3 sm:px-5 md:px-8 prose-p:tracking-tight prose-p:font-normal">
       <div className="pl-2">
@@ -74,7 +73,7 @@ export default async function DocsPage({
         ]}
       />
 
-      <DocsFooter currentPage={currentPage}/>
+      <DocsFooter currentPage={slug}/>
     </div>
   );
 }

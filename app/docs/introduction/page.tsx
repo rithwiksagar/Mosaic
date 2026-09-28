@@ -1,3 +1,5 @@
+import { DocsFooter } from "@/components/docs/DocsFooter";
+
 export default function Introduction() {
   return (
     <div className="space-y-10 px-6 lg:px-10">
@@ -79,6 +81,8 @@ export default function Introduction() {
         Mosiac is open source and continuously evolving. Explore the components,
         experiment with them, and build something of your own.
       </p>
+
+    <DocsFooter currentPage="introduction"/>
     </div>
   );
 }
