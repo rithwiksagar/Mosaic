@@ -4,7 +4,6 @@ import { cn } from "@/lib/utils";
 import { AnimatePresence, easeOut, motion } from "motion/react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { FiSidebar } from "react-icons/fi";
 import { usePathname } from "next/navigation";
 import { componentCatalog } from "@/catalog/components";
 import UseToggleTheme from "@/hooks/UseToggleTheme";
@@ -12,13 +11,52 @@ import { FaGithub } from "react-icons/fa";
 import { RiTwitterXFill } from "react-icons/ri";
 import { IoMailOutline } from "react-icons/io5";
 
+const SIDEBAR_OUTER =
+  "M11 3H13C16.7712 3 18.6569 3 19.8284 4.17157C21 5.34315 21 7.22876 21 11V13C21 16.7712 21 18.6569 19.8284 19.8284C18.6569 21 16.7712 21 13 21H11C7.2288 21 5.3431 21 4.1716 19.8284C3 18.6569 3 16.7712 3 13V11C3 7.22876 3 5.34315 4.1716 4.17157C5.3431 3 7.2288 3 11 3Z";
+
+const SIDEBAR_PANEL_CLOSED =
+  "M10 5.5 C10 4.793 10 4.439 9.780 4.220 C9.560 4 9.207 4 8.5 4 H8.5 C6.379 4 5.318 4 4.659 4.659 C4 5.318 4 6.379 4 8.5 V15.5 C4 17.621 4 18.682 4.659 19.341 C5.318 20 6.379 20 8.5 20 H8.5 C9.207 20 9.561 20 9.780 19.780 C10 19.561 10 19.207 10 18.5 V5.5 Z";
+
+const SIDEBAR_PANEL_OPEN =
+  "M14 6 C14 5.057 14 4.586 13.707 4.293 C13.414 4 12.943 4 12 4 H10 C7.172 4 5.757 4 4.879 4.879 C4 5.757 4 7.172 4 10 V14 C4 16.828 4 18.243 4.879 19.121 C5.757 20 7.172 20 10 20 H12 C12.943 20 13.414 20 13.707 19.707 C14 19.414 14 18.943 14 18 V6 Z";
+
+function SidebarToggleIcon({
+  showSidebar,
+  strokeWidth = 1.5,
+  className,
+}: {
+  showSidebar: boolean;
+  strokeWidth?: number;
+  className?: string;
+}) {
+  return (
+    <svg className={cn(className)} fill="none" viewBox="0 0 24 24">
+      <path
+        d={SIDEBAR_OUTER}
+        fill="currentColor"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={strokeWidth}
+      />
+
+      <motion.path
+        animate={{ d: showSidebar ? SIDEBAR_PANEL_OPEN : SIDEBAR_PANEL_CLOSED }}
+        d={showSidebar ? SIDEBAR_PANEL_OPEN : SIDEBAR_PANEL_CLOSED}
+        style={{ fill: "var(--background)" }}
+        transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+      />
+    </svg>
+  );
+}
+
 const gettingStarted = [
   { title: "Introduction", href: "/docs/introduction" },
   { title: "Installation", href: "/docs/installation" },
 ];
 
 export default function DocsSidebar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const sidebarRef = useRef<null | HTMLDivElement>(null);
   const pathName = usePathname();
 
@@ -28,7 +66,7 @@ export default function DocsSidebar() {
         sidebarRef.current &&
         !sidebarRef.current.contains(e.target as Node)
       ) {
-        setIsOpen(false);
+        setIsSidebarOpen(false);
       }
     }
 
@@ -41,23 +79,25 @@ export default function DocsSidebar() {
   return (
     <div ref={sidebarRef}>
       <button
-        onClick={() => setIsOpen((c) => !c)}
+        onClick={() => setIsSidebarOpen((current) => !current)}
         aria-label={
-          isOpen ? "Close documentation sidebar" : "Open documentation sidebar"
+          isSidebarOpen
+            ? "Close documentation sidebar"
+            : "Open documentation sidebar"
         }
-        aria-expanded={isOpen}
-        className="fixed top-3 left-2 sm:left-3 z-10000 cursor-pointer rounded-xl bg-muted p-2.5 text-neutral-700 hover:bg-neutral-200 dark:bg-neutral-900 dark:text-neutral-400 dark:hover:bg-neutral-800"
+        aria-expanded={isSidebarOpen}
+        className="fixed top-3 left-2 sm:left-3 z-10000 cursor-pointer rounded-xl p-2.5 text-neutral-600 hover:bg-neutral-200 dark:text-neutral-400 dark:hover:bg-neutral-800"
       >
-        <FiSidebar className="size-4 md:size-5" />
+        <SidebarToggleIcon showSidebar={isSidebarOpen} className="size-5" />
       </button>
       <AnimatePresence>
-        {isOpen && (
+        {isSidebarOpen && (
           <motion.aside
             initial={{ opacity: 0, x: -20, filter: "blur(2px)" }}
             animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
             exit={{ opacity: 0, x: -20, filter: "blur(2px)" }}
             transition={{ duration: 0.15, ease: easeOut }}
-            className="fixed left-1 top-1 bottom-1 z-9999 flex w-[min(18rem,calc(100vw-0.5rem))] flex-col overflow-hidden rounded-xl border border-neutral-200/50 bg-neutral-100 p-1 dark:border-neutral-800/70 dark:bg-neutral-900"
+            className="fixed left-1 top-0 bottom-0 z-9999 flex w-[min(18rem,calc(100vw-0.5rem))] flex-col overflow-hidden rounded-xl border border-neutral-200/50 bg-neutral-100 p-1 dark:border-neutral-800/70 dark:bg-neutral-900"
           >
             <div className="min-h-0 flex-1 overflow-y-auto pt-20">
               <section className="mb-10">
@@ -71,7 +111,7 @@ export default function DocsSidebar() {
                       key={item.title}
                       href={item.href}
                       onClick={() => {
-                        setIsOpen(false);
+                        setIsSidebarOpen(false);
                       }}
                       className={cn(
                         "rounded-lg px-3 py-1.5 text-[14px] font-normal tracking-wide text-neutral-500 dark:text-neutral-500",
@@ -103,7 +143,7 @@ export default function DocsSidebar() {
                       key={item.slug}
                       href={`/docs/${item.slug}`}
                       onClick={() => {
-                        setIsOpen(false);
+                        setIsSidebarOpen(false);
                       }}
                       className={cn(
                         "rounded-lg px-3 py-1.5 text-[14px] font-normal tracking-wide text-neutral-500 dark:text-neutral-500",
