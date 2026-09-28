@@ -1,7 +1,8 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { CircleCheck, Copy } from "lucide-react";
+import { CircleCheck, Copy } from "lucide";
+import { MorphIcon } from "morphicons/react";
 import { easeOut, motion } from "motion/react";
 import { useState } from "react";
 
@@ -31,14 +32,9 @@ export function CopyButton({
           setCopied(false);
         }, 3000);
       }}
-      className={cn(className)}
+      className={cn(className, "cursor-pointer text-neutral-500 dark:text-neutral-400")}
     >
-      {!copied && (
-        <Copy className="p-2 size-8 text-neutral-500 hover:text-neutral-600 dark:hover:text-neutral-300 cursor-pointer" />
-      )}
-      {copied && (
-        <CircleCheck className="p-2 size-8 text-neutral-600 dark:text-neutral-300 cursor-pointer" />
-      )}
+      <MorphIcon icon={copied ? CircleCheck : Copy} className="size-4.5"/>
     </motion.button>
   );
 }

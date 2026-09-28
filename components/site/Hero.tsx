@@ -66,21 +66,21 @@ export default function Hero() {
         initial="initial"
         animate="animate"
         transition={{ duration: 0.6 }}
-        className="mt-32 flex flex-col md:flex-row items-center gap-4 md:gap-1"
+        className="mt-32 flex flex-col md:flex-row items-center gap-4 md:gap-2"
       >
-        <motion.div
-          whileHover={{ width: 340, transition: { type: spring, bounce: 0.5 } }}
-          className="flex items-center gap-1 text-sm md:w-72 justify-center rounded-xl md:rounded-2xl bg-muted px-4 py-2 md:py-3 text-neutral-500 dark:bg-neutral-900 dark:text-neutral-300 "
-        >
-          <span>npx create-brainframe-ui@latest</span>
-          <CopyButton copy="" />
-        </motion.div>
         <MotionLink
           href="/docs/installation"
           whileHover={{ width: 140, transition: { type: spring, bounce: 0.5 } }}
           className="rounded-2xl px-4 py-3 md:py-3 bg-blue-500 text-white flex justify-center"
         >
           Get started
+        </MotionLink>
+        <MotionLink
+          href="/docs/prompt-bar"
+          whileHover={{ width: 200, transition: { type: spring, bounce: 0.5 } }}
+          className="rounded-2xl px-4 py-3 md:py-3 bg-neutral-100 text-neutral-600 dark:bg-neutral-800/80 dark:text-neutral-200 flex justify-center shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.06),0px_1px_0px_0px_rgba(25,28,33,0.015),0px_0px_0px_1px_rgba(25,28,33,0.05)]"
+        >
+          View Components
         </MotionLink>
       </motion.div>
     </div>

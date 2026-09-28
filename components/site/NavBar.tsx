@@ -75,7 +75,7 @@ function MobileMenu({ labels }: { labels: label[] }) {
   return (
     <div ref={menuRef} className="relative lg:hidden">
       <button
-        className="py-2 px-1 text-neutral-500"
+        className="py-2 px-1 text-neutral-800 dark:text-neutral-100"
         onClick={() => {
           setIsMenuOpen((p) => !p);
         }}
