@@ -10,6 +10,12 @@ import UseToggleTheme from "@/hooks/UseToggleTheme";
 import { FaGithub } from "react-icons/fa";
 import { RiTwitterXFill } from "react-icons/ri";
 import { IoMailOutline } from "react-icons/io5";
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  GridViewIcon,
+  Home03Icon,
+  Rocket02Icon,
+} from "@hugeicons/core-free-icons";
 
 const SIDEBAR_OUTER =
   "M11 3H13C16.7712 3 18.6569 3 19.8284 4.17157C21 5.34315 21 7.22876 21 11V13C21 16.7712 21 18.6569 19.8284 19.8284C18.6569 21 16.7712 21 13 21H11C7.2288 21 5.3431 21 4.1716 19.8284C3 18.6569 3 16.7712 3 13V11C3 7.22876 3 5.34315 4.1716 4.17157C5.3431 3 7.2288 3 11 3Z";
@@ -102,32 +108,23 @@ export default function DocsSidebar() {
           >
             <div className="min-h-0 flex-1 overflow-y-auto pt-20">
               <section className="mb-6">
-                <h2 className="mb-2 px-3 text-[12px] font-medium uppercase tracking-wider text-neutral-500 dark:text-neutral-500">
-                  General
-                </h2>
-                <div className="flex flex-col gap-2">
-                  {general.map((item) => (
-                    <Link
-                      key={item.title}
-                      href={item.href}
-                      onClick={() => {
-                        setIsSidebarOpen(false);
-                      }}
-                      className={cn(
-                        "rounded-lg px-3 py-1.5 text-[14px] font-normal tracking-wide text-neutral-500 hover:bg-neutral-200/60 hover:text-neutral-900 dark:hover:bg-neutral-800 dark:hover:text-neutral-200",
-                      )}
-                    >
-                      {item.title}
-                    </Link>
-                  ))}
-                </div>
+                <Link
+                  href={"/"}
+                  onClick={() => {
+                    setIsSidebarOpen(false);
+                  }}
+                  className="py-2 px-3 rounded-lg text-[12px] font-medium uppercase tracking-wider text-neutral-500 dark:text-neutral-500 flex gap-1 hover:bg-neutral-200/60 dark:hover:bg-neutral-800/60 dark:hover:text-neutral-100 hover:text-neutral-900"
+                >
+                <HugeiconsIcon icon={Home03Icon} className="size-4 text-blue-500"/>  
+                Home</Link>
               </section>
               <section className="mb-10">
-                <h2 className="mb-2 px-3 text-[12px] font-medium uppercase tracking-wider text-neutral-500 dark:text-neutral-500">
+                <h2 className="mb-2 px-3 text-[12px] font-medium uppercase tracking-wider text-neutral-500 dark:text-neutral-500 flex items-center gap-1">
+                  <HugeiconsIcon icon={Rocket02Icon} className="size-4 text-emerald-500" />
                   Getting Started
                 </h2>
 
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-2 pl-4.5">
                   {gettingStarted.map((item) => (
                     <Link
                       key={item.title}
@@ -150,16 +147,12 @@ export default function DocsSidebar() {
 
               <section>
                 <div className="mb-2 flex items-center gap-5 px-3">
-                  <h2 className="text-[12px] font-medium uppercase tracking-wider text-neutral-500 dark:text-neutral-500">
-                    All Components
+                  <h2 className="text-[12px] font-medium uppercase tracking-wider text-neutral-500 dark:text-neutral-500 flex items-center gap-1">
+                  <HugeiconsIcon icon={GridViewIcon} className="size-3.5 text-sky-500"/>All Components
                   </h2>
-
-                  <span className="rounded-xl bg-sky-100 px-2 py-0.5 text-xs text-sky-600 dark:bg-sky-500 dark:text-sky-100">
-                    {componentCatalog.length}
-                  </span>
                 </div>
 
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-2 pl-4.5">
                   {componentCatalog.map((item) => (
                     <Link
                       key={item.slug}

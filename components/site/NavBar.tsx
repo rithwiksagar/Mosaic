@@ -6,17 +6,19 @@ import CommandMenu from "./CommandMenu";
 import { Menu, X } from "lucide";
 import UseToggleTheme from "@/hooks/UseToggleTheme";
 import { MorphIcon } from "morphicons/react";
+import { HugeiconsIcon, IconSvgElement } from "@hugeicons/react";
+import { GithubIcon, GoogleDocIcon, GridViewIcon } from "@hugeicons/core-free-icons";
 
 type label = {
   label: string;
   href: string;
-  icon?: React.ReactNode;
+  icon: IconSvgElement;
 };
 
 const labels: label[] = [
-  { label: "Github", href: "https://github.com/rithwiksagar/Mosaic" },
-  { label: "Docs", href: "/docs/introduction" },
-  { label: "Components", href: "/docs/prompt-bar" },
+  { label: "Github", href: "https://github.com/rithwiksagar/Mosaic", icon: GithubIcon },
+  { label: "Docs", href: "/docs/introduction", icon: GoogleDocIcon },
+  { label: "Components", href: "/docs/prompt-bar", icon: GridViewIcon },
 ];
 
 export default function NavBar() {
@@ -107,16 +109,17 @@ function MobileMenu({ labels }: { labels: label[] }) {
                 href={item.href}
                 onClick={() => setIsMenuOpen(false)}
                 className="
-              block rounded-xl
+              rounded-xl
               px-3 py-2.5
               text-sm text-neutral-700
               transition-colors
               hover:bg-neutral-200/60
               dark:text-neutral-300
               dark:hover:bg-neutral-800/60
+              flex gap-1 items-center
             "
               >
-                {item.label}
+                <HugeiconsIcon icon={item.icon} className="size-4"/> {item.label}
               </Link>
             ))}
             <div className="py-2.5 px-3 flex-1">
