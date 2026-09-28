@@ -2,6 +2,7 @@ import { CatalogItem } from "@/types/CatalogItem";
 
 export const componentCatalog: CatalogItem[] = [
   {
+    id: 0,
     name: "Prompt Bar",
     slug: "prompt-bar",
     description:
@@ -15,6 +16,7 @@ export const componentCatalog: CatalogItem[] = [
   },
 
   {
+    id: 1,
     name: "Text Actions",
     slug: "text-actions",
     description:
@@ -27,6 +29,7 @@ export const componentCatalog: CatalogItem[] = [
   },
 
   {
+    id: 2,
     name: "Prompt Launcher",
     slug: "prompt-launcher",
     description:
@@ -40,6 +43,7 @@ export const componentCatalog: CatalogItem[] = [
   },
 
   {
+    id: 3,
     name: "Prompt Trigger",
     slug: "prompt-trigger",
     description:
@@ -53,6 +57,7 @@ export const componentCatalog: CatalogItem[] = [
   },
 
   {
+    id: 4,
     name: "Citations",
     slug: "citations",
     description:
@@ -65,6 +70,7 @@ export const componentCatalog: CatalogItem[] = [
   },
 
   {
+    id: 5,
     name: "Response Streaming",
     slug: "response-streaming",
     description:

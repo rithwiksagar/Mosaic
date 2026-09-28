@@ -1,40 +1,39 @@
+import { componentCatalog } from "@/catalog/components";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { ReactNode } from "react";
 
 interface FooterProps {
-  prevHref: string;
-  nextHref: string;
-  prevTitle: ReactNode;
-  nextTitle: ReactNode;
+  currentPage: number;
 }
-export function DocsFooter({
-  prevHref,
-  nextHref,
-  prevTitle,
-  nextTitle,
-}: FooterProps) {
+
+export function DocsFooter({ currentPage }: FooterProps) {
+  const previousPage = componentCatalog[currentPage - 1];
+  const nextPage = componentCatalog[currentPage + 1];
   return (
-    <div className="flex w-78 md:w-172 justify-between mt-20">
-      <Link
-        href={prevHref}
-        className="px-3 border inline-flex justify-center items-center gap-1
-        rounded-md dark:text-neutral-500 no-underline
-     dark:border-neutral-800/80 border-neutral-300 text-neutral-600 font-extralight text-[15px]"
-      >
-        <ArrowLeft className="size-3.5" />
-        {prevTitle}
-      </Link>
-      <Link
-        href={nextHref}
-        className="px-3 border inline-flex justify-center items-center gap-1
-        rounded-md dark:text-neutral-500 no-underline
-     dark:border-neutral-800/80
-      border-neutral-300 text-neutral-600 font-extralight text-[15px]"
-      >
-        {nextTitle}
-        <ArrowRight className="size-3.5" />
-      </Link>
+    <div className="flex w-full justify-between mt-20 mb-6">
+      {previousPage ? (
+        <Link
+          href={previousPage.slug}
+          className="px-3 py-2 inline-flex justify-center items-center gap-1
+        rounded-md dark:text-neutral-500 no-underline hover:underline dark:hover:text-neutral-100
+       text-neutral-600 text-[15px] group"
+        >
+          <ArrowLeft className="size-4.5 group-hover:-translate-x-2 transition-all duration-150 ease-out" />
+                    {previousPage.name}
+
+        </Link>
+      ) : <div />}
+      {nextPage ? (
+        <Link
+          href={nextPage.slug}
+          className="px-3 py-2 inline-flex justify-center items-center gap-1
+        rounded-md dark:text-neutral-500 no-underline hover:underline dark:hover:text-neutral-100
+       text-neutral-600 text-[15px] group"
+        >
+          {nextPage.name}
+          <ArrowRight className="size-4.5 group-hover:translate-x-2 transition-all duration-150 ease-out" />
+        </Link>
+      ) : <div />}
     </div>
   );
 }
