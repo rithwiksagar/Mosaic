@@ -2,9 +2,10 @@
 import { AnimatePresence, easeOut, motion } from "motion/react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { IoMenu } from "react-icons/io5";
 import CommandMenu from "./CommandMenu";
+import { Menu, X } from "lucide";
 import UseToggleTheme from "@/hooks/UseToggleTheme";
+import { MorphIcon } from "morphicons/react";
 
 type label = {
   label: string;
@@ -47,13 +48,13 @@ export default function NavBar() {
           <CommandMenu />
         </div>
 
-        <Menu labels={labels} />
+        <MobileMenu labels={labels} />
       </div>
     </div>
   );
 }
 
-function Menu({ labels }: { labels: label[] }) {
+function MobileMenu({ labels }: { labels: label[] }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
 
@@ -74,12 +75,12 @@ function Menu({ labels }: { labels: label[] }) {
   return (
     <div ref={menuRef} className="relative lg:hidden">
       <button
-        className="py-2 px-1"
+        className="py-2 px-1 text-neutral-500"
         onClick={() => {
           setIsMenuOpen((p) => !p);
         }}
       >
-        <IoMenu className="size-5 cursor-pointer" />
+        <MorphIcon icon={isMenuOpen ? X : Menu} className="size-5"/>
       </button>
       <AnimatePresence>
         {isMenuOpen && (
