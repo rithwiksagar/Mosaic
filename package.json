@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "registry:build": "shadcn build"
+    "registry": "shadcn build"
   },
   "dependencies": {
     "@hugeicons/core-free-icons": "^4.3.5",

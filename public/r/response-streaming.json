@@ -6,9 +6,12 @@
     "lucide-react",
     "motion"
   ],
+  "registryDependencies": [
+    "utils"
+  ],
   "files": [
     {
-      "path": "registry/new-york/components/response-streaming/ResponseStreaming.tsx",
+      "path": "components/ui/response-streaming.tsx",
       "content": "\"use client\";\r\n\r\nimport { motion } from \"motion/react\";\r\nimport { useEffect, useState } from \"react\";\r\n\r\nconst tokens = [\r\n  \"The\",\r\n  \" future\",\r\n  \" of\",\r\n  \" AI\",\r\n  \" is\",\r\n  \" not\",\r\n  \" just\",\r\n  \" about\",\r\n  \" models.\",\r\n  \" It's\",\r\n  \" about\",\r\n  \" how\",\r\n  \" we\",\r\n  \" use\",\r\n  \" them.\",\r\n  \"The\",\r\n  \" future\",\r\n  \" of\",\r\n  \" AI\",\r\n  \" is\",\r\n  \" not\",\r\n  \" just\",\r\n  \" about\",\r\n  \" models.\",\r\n  \" It's\",\r\n  \" about\",\r\n  \" how\",\r\n  \" we\",\r\n  \" use\",\r\n  \" them.\",\r\n  \"The\",\r\n  \" future\",\r\n  \" of\",\r\n  \" AI\",\r\n  \" is\",\r\n  \" not\",\r\n  \" just\",\r\n  \" about\",\r\n  \" models.\",\r\n  \" It's\",\r\n  \" about\",\r\n  \" how\",\r\n  \" we\",\r\n  \" use\",\r\n  \" them.\",\r\n];\r\n\r\nfunction ResponseStreaming() {\r\n  const [response, setResponse] = useState(\"\");\r\n  const [newToken, setNewToken] = useState(\"\");\r\n\r\n  useEffect(() => {\r\n    setNewResponse();\r\n  }, []);\r\n\r\n  async function setNewResponse() {\r\n    for (const token of tokens) {\r\n      setNewToken(token);\r\n      await new Promise((resolve) => setTimeout(resolve, 20));\r\n      setResponse((r) => r + token);\r\n      setNewToken(\"\")\r\n    }\r\n  }\r\n\r\n  return (\r\n    <div className=\"text-black\">\r\n      <span className=\"text-[14px] lg:text-[16px]\">{response}</span>\r\n      <motion.span \r\n      key={newToken}\r\n      initial={{filter:\"opacity:0\"}}\r\n      animate={{filter:\"opacity:1\"}}\r\n      transition={{ease: [0.16, 1, 0.3, 1]}}\r\n      >{newToken}</motion.span>\r\n    </div>\r\n  );\r\n}\r\n\r\nexport { ResponseStreaming };\r\n",
       "type": "registry:ui"
     }

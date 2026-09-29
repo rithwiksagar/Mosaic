@@ -3,10 +3,10 @@ import CodeFile from "@/components/code/CodeFile";
 import CommandBlock from "@/components/code/CommandBlock";
 import LibsFile from "@/components/code/LibsFile";
 import ComponentPreview from "@/components/docs/ComponentPreview";
+import { exampleRegistry } from "@/components/docs/exampleRegistry";
 import { DocsFooter } from "@/components/docs/DocsFooter";
 import PropsTable from "@/components/docs/PropsTable";
 import GetFileContent from "@/lib/getFileContent";
-import { exampleRegistry } from "@/registry/new-york/examples";
 import { notFound } from "next/navigation";
 
 export default async function DocsPage({
@@ -14,15 +14,15 @@ export default async function DocsPage({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-
   const { slug } = await params;
-  const component = componentCatalog.find((comp)=> comp.slug === slug);
-  if(!component){
+  const component = componentCatalog.find((comp) => comp.slug === slug);
+  if (!component) {
     notFound();
   }
   const Usagecode = await GetFileContent(component.examplePath);
   const componentCode = await GetFileContent(component.filePath);
-  const componentPreview = exampleRegistry[slug as keyof typeof exampleRegistry]
+  const componentPreview =
+    exampleRegistry[slug as keyof typeof exampleRegistry];
   return (
     <div className="w-full min-w-0 px-3 sm:px-5 md:px-8 prose-p:tracking-tight prose-p:font-normal">
       <div className="pl-2">
@@ -73,7 +73,7 @@ export default async function DocsPage({
         ]}
       />
 
-      <DocsFooter currentPage={slug}/>
+      <DocsFooter currentPage={slug} />
     </div>
   );
 }

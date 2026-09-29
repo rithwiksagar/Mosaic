@@ -1,8 +1,15 @@
 "use client";
 
-
 import { useState } from "react";
-import { PromptTrigger, PromptTriggerActions, PromptTriggerAttachments, PromptTriggerButton, PromptTriggerPromptBar, PromptTriggerSubmit, PromptTriggerTextarea } from "../../components/prompt-trigger/PromptTrigger";
+import {
+  PromptTrigger,
+  PromptTriggerActions,
+  PromptTriggerAttachments,
+  PromptTriggerButton,
+  PromptTriggerPromptBar,
+  PromptTriggerSubmit,
+  PromptTriggerTextarea,
+} from "@/components/ui/prompt-trigger";
 
 export function PromptTriggerDemo() {
   const [value, setValue] = useState("");

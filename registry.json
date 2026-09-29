@@ -4,16 +4,24 @@
   "homepage": "https://brainframeui.tech",
   "items": [
     {
+      "name": "utils",
+      "type": "registry:lib",
+      "files": [
+        {
+          "path": "lib/utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
       "name": "prompt-bar",
       "description": "A polished AI prompt input with slash commands for quickly switching between actions and tools.",
       "type": "registry:component",
-      "dependencies": [
-        "lucide-react",
-        "motion"
-      ],
+      "dependencies": ["lucide-react", "motion"],
+      "registryDependencies": ["utils"],
       "files": [
         {
-          "path": "registry/new-york/components/prompt-bar/MosaicPromptBar.tsx",
+          "path": "components/ui/mosaic-prompt-bar.tsx",
           "type": "registry:ui"
         }
       ]
@@ -22,13 +30,11 @@
       "name": "text-actions",
       "description": "A compact action bar for quickly copying and interacting with AI-generated text.",
       "type": "registry:component",
-      "dependencies": [
-        "lucide-react",
-        "motion"
-      ],
+      "dependencies": ["lucide-react", "motion"],
+      "registryDependencies": ["utils"],
       "files": [
         {
-          "path": "registry/new-york/components/text-actions/TextActions.tsx",
+          "path": "components/ui/textactions.tsx",
           "type": "registry:ui"
         }
       ]
@@ -37,13 +43,11 @@
       "name": "prompt-launcher",
       "description": "A compact prompt launcher that expands horizontally from a button into an AI input.",
       "type": "registry:component",
-      "dependencies": [
-        "lucide-react",
-        "motion"
-      ],
+      "dependencies": ["lucide-react", "motion"],
+      "registryDependencies": ["utils"],
       "files": [
         {
-          "path": "registry/new-york/components/prompt-launcher/PromptLauncher.tsx",
+          "path": "components/ui/prompt-launcher.tsx",
           "type": "registry:ui"
         }
       ]
@@ -52,13 +56,11 @@
       "name": "prompt-trigger",
       "description": "A button that smoothly transforms into a prompt input with support for file attachments.",
       "type": "registry:component",
-      "dependencies": [
-        "lucide-react",
-        "motion"
-      ],
+      "dependencies": ["lucide-react", "motion"],
+      "registryDependencies": ["utils"],
       "files": [
         {
-          "path": "registry/new-york/components/prompt-trigger/PromptTrigger.tsx",
+          "path": "components/ui/prompt-trigger.tsx",
           "type": "registry:ui"
         }
       ]
@@ -67,13 +69,11 @@
       "name": "citations",
       "description": "Animated citations with direction-aware transitions for smoothly navigating referenced content.",
       "type": "registry:component",
-      "dependencies": [
-        "lucide-react",
-        "motion"
-      ],
+      "dependencies": ["lucide-react", "motion"],
+      "registryDependencies": ["utils"],
       "files": [
         {
-          "path": "registry/new-york/components/citations/Citations.tsx",
+          "path": "components/ui/citations.tsx",
           "type": "registry:ui"
         }
       ]
@@ -82,13 +82,11 @@
       "name": "response-streaming",
       "description": "A smooth streaming text component for rendering AI responses as they arrive in real time.",
       "type": "registry:component",
-      "dependencies": [
-        "lucide-react",
-        "motion"
-      ],
+      "dependencies": ["lucide-react", "motion"],
+      "registryDependencies": ["utils"],
       "files": [
         {
-          "path": "registry/new-york/components/response-streaming/ResponseStreaming.tsx",
+          "path": "components/ui/response-streaming.tsx",
           "type": "registry:ui"
         }
       ]

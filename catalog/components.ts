@@ -9,9 +9,8 @@ export const componentCatalog: CatalogItem[] = [
       "A polished AI prompt input with slash commands for quickly switching between actions and tools.",
     category: "component",
     registryUrl: "https://brainframeui.tech/r/prompt-bar.json",
-    filePath: "registry/new-york/components/prompt-bar/MosaicPromptBar.tsx",
-    examplePath:
-      "registry/new-york/examples/prompt-bar/MosaicPromptBarDemo.tsx",
+    filePath: "components/ui/mosaic-prompt-bar.tsx",
+    examplePath: "components/docs/prompt-bar-demo.tsx",
     videoPath: "/previewVideos/PromptBar.webm",
   },
 
@@ -23,8 +22,8 @@ export const componentCatalog: CatalogItem[] = [
       "A compact action bar for quickly copying and interacting with AI-generated text.",
     category: "component",
     registryUrl: "https://brainframeui.tech/r/text-actions.json",
-    filePath: "registry/new-york/components/text-actions/TextActions.tsx",
-    examplePath: "registry/new-york/examples/text-actions/TextActionsDemo.tsx",
+    filePath: "components/ui/textactions.tsx",
+    examplePath: "components/docs/text-actions-demo.tsx",
     videoPath: "/previewVideos/TextActions.webm",
   },
 
@@ -36,9 +35,8 @@ export const componentCatalog: CatalogItem[] = [
       "A compact prompt launcher that expands horizontally from a button into an AI input.",
     category: "component",
     registryUrl: "https://brainframeui.tech/r/prompt-launcher.json",
-    filePath: "registry/new-york/components/prompt-launcher/PromptLauncher.tsx",
-    examplePath:
-      "registry/new-york/examples/prompt-launcher/PromptLauncherDemo.tsx",
+    filePath: "components/ui/prompt-launcher.tsx",
+    examplePath: "components/docs/prompt-launcher-demo.tsx",
     videoPath: "/previewVideos/AskAI001.webm",
   },
 
@@ -50,9 +48,8 @@ export const componentCatalog: CatalogItem[] = [
       "A button that smoothly transforms into a prompt input with support for file attachments.",
     category: "component",
     registryUrl: "https://brainframeui.tech/r/prompt-trigger.json",
-    filePath: "registry/new-york/components/prompt-trigger/PromptTrigger.tsx",
-    examplePath:
-      "registry/new-york/examples/prompt-trigger/PromptTriggerDemo.tsx",
+    filePath: "components/ui/prompt-trigger.tsx",
+    examplePath: "components/docs/prompt-trigger-demo.tsx",
     videoPath: "/previewVideos/AskAI002.webm",
   },
 
@@ -64,8 +61,8 @@ export const componentCatalog: CatalogItem[] = [
       "Animated citations with direction-aware transitions for smoothly navigating referenced content.",
     category: "component",
     registryUrl: "https://brainframeui.tech/r/citations.json",
-    filePath: "registry/new-york/components/citations/Citations.tsx",
-    examplePath: "registry/new-york/examples/citations/CitationsDemo.tsx",
+    filePath: "components/ui/citations.tsx",
+    examplePath: "components/docs/citations-demo.tsx",
     videoPath: "/previewVideos/Citations.webm",
   },
 
@@ -77,10 +74,8 @@ export const componentCatalog: CatalogItem[] = [
       "A smooth streaming text component for rendering AI responses as they arrive in real time.",
     category: "component",
     registryUrl: "https://brainframeui.tech/r/response-streaming.json",
-    filePath:
-      "registry/new-york/components/response-streaming/ResponseStreaming.tsx",
-    examplePath:
-      "registry/new-york/examples/response-streaming/ResponseStreamingDemo.tsx",
+    filePath: "components/ui/response-streaming.tsx",
+    examplePath: "components/docs/streaming-demo.tsx",
     videoPath: "",
   },
 ];

@@ -9,7 +9,7 @@ import {
   PromptInputSubmit,
   PromptInputTextArea,
   PromptBar,
-} from "@/registry/new-york/components/prompt-bar/MosaicPromptBar";
+} from "@/components/ui/mosaic-prompt-bar";
 import { FileText, Lightbulb, PenLine, ImageIcon } from "lucide-react";
 import { useState } from "react";
 

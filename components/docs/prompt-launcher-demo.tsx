@@ -6,7 +6,7 @@ import {
   PromptLauncherPromptBar,
   PromptLauncherSubmit,
   PromptLauncher,
-} from "@/registry/new-york/components/prompt-launcher/PromptLauncher";
+} from "@/components/ui/prompt-launcher";
 import { useState } from "react";
 
 export function PromptLauncherDemo() {

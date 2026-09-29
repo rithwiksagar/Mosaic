@@ -1,5 +1,4 @@
-import { ResponseStreaming } from "../../components/response-streaming/ResponseStreaming";
-
+import { ResponseStreaming } from "../ui/response-streaming";
 
 
 export function ResponseStreamingDemo(){

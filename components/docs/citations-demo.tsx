@@ -1,5 +1,4 @@
-import { Citations, Source, SourceData } from "../../components/citations/Citations";
-
+import { Citations, Source, SourceData } from "@/components/ui/citations";
 
 
 const sources: SourceData[] = [
