@@ -107,20 +107,27 @@ export default function DocsSidebar() {
             className="fixed left-1 top-0 bottom-0 z-9999 flex w-[min(18rem,calc(100vw-0.5rem))] flex-col overflow-hidden rounded-xl border border-neutral-200/50 bg-neutral-100 p-1 dark:border-neutral-800/70 dark:bg-neutral-900"
           >
             <div className="min-h-0 flex-1 overflow-y-auto pt-20">
-              <section className="mb-6">
+              <section className="mb-2">
                 <Link
                   href={"/"}
                   onClick={() => {
                     setIsSidebarOpen(false);
                   }}
-                  className="py-2 px-3 rounded-lg text-[12px] font-medium uppercase tracking-wider text-neutral-500 dark:text-neutral-500 flex gap-1 hover:bg-neutral-200/60 dark:hover:bg-neutral-800/60 dark:hover:text-neutral-100 hover:text-neutral-900"
+                  className="py-2 px-3 rounded-lg text-[12px] font-medium uppercase tracking-wider text-neutral-500 dark:text-neutral-500 flex items-end gap-1 hover:bg-neutral-200/60 dark:hover:bg-neutral-800/60 dark:hover:text-neutral-100 hover:text-neutral-900"
                 >
-                <HugeiconsIcon icon={Home03Icon} className="size-4 text-blue-500"/>  
-                Home</Link>
+                  <HugeiconsIcon
+                    icon={Home03Icon}
+                    className="size-4 -translate-y-[3px] text-blue-500"
+                  />
+                  Home
+                </Link>
               </section>
               <section className="mb-10">
                 <h2 className="mb-2 px-3 text-[12px] font-medium uppercase tracking-wider text-neutral-500 dark:text-neutral-500 flex items-center gap-1">
-                  <HugeiconsIcon icon={Rocket02Icon} className="size-4 text-emerald-500" />
+                  <HugeiconsIcon
+                    icon={Rocket02Icon}
+                    className="size-4 text-emerald-500"
+                  />
                   Getting Started
                 </h2>
 
@@ -148,7 +155,11 @@ export default function DocsSidebar() {
               <section>
                 <div className="mb-2 flex items-center gap-5 px-3">
                   <h2 className="text-[12px] font-medium uppercase tracking-wider text-neutral-500 dark:text-neutral-500 flex items-center gap-1">
-                  <HugeiconsIcon icon={GridViewIcon} className="size-3.5 text-sky-500"/>All Components
+                    <HugeiconsIcon
+                      icon={GridViewIcon}
+                      className="size-3.5 text-sky-500 -translate-y-[1px]"
+                    />
+                    All Components
                   </h2>
                 </div>
 
