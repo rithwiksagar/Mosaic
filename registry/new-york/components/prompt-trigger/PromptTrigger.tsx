@@ -30,7 +30,9 @@ type PromptTriggerContextValue = Omit<PromptTriggerProps, "children"> & {
   textareaRef: React.RefObject<HTMLTextAreaElement | null>;
 };
 
-const PromptTriggerContext = createContext<PromptTriggerContextValue | null>(null);
+const PromptTriggerContext = createContext<PromptTriggerContextValue | null>(
+  null,
+);
 
 function useMosaicContext() {
   const context = useContext(PromptTriggerContext);
@@ -103,7 +105,9 @@ function PromptTrigger({
           transition={{
             layout: { duration: 0.3, ease: [0.22, 1, 0.36, 1] },
           }}
-          style={{ width: isExpanded ? "min(500px, calc(100vw - 3.5rem))" : "auto" }}
+          style={{
+            width: isExpanded ? "min(400px, calc(100vw - 3.5rem))" : "auto",
+          }}
           className={cn(
             "bg-neutral-100 dark:bg-neutral-800 dark:text-white font-medium shadow-[0_2px_4px_rgba(0,0,0,0.06),0_8px_20px_rgba(0,0,0,0.08)] dark:shadow-[0_2px_4px_rgba(0,0,0,0.2),0_8px_20px_rgba(0,0,0,0.25)]",
             multiLine ? "rounded-2xl" : "rounded-3xl",
@@ -183,7 +187,7 @@ function PromptTriggerTextarea({ className }: { className?: string }) {
           }
         }}
         className={cn(
-          "w-full h-8 max-h-64 py-1 px-2 resize-none outline-none dark:text-neutral-100 overflow-y-scroll [scrollbar-width:none] mask-[linear-gradient(to_bottom,transparent,black_4%,black_98%,transparent)]",
+          "w-full h-6 max-h-64 py-1 px-2 leading-4 resize-none outline-none dark:text-neutral-100 overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden mask-[linear-gradient(to_bottom,transparent,black_4%,black_98%,transparent)]",
           className,
         )}
       />
@@ -191,7 +195,7 @@ function PromptTriggerTextarea({ className }: { className?: string }) {
         <motion.span
           layoutId="ask-ai"
           transition={transition}
-          className="absolute text-neutral-500 left-2 top-1 select-none pointer-events-none"
+          className="absolute text-neutral-500 left-2 top-0 select-none pointer-events-none"
         >
           Ask AI
         </motion.span>
@@ -200,7 +204,13 @@ function PromptTriggerTextarea({ className }: { className?: string }) {
   );
 }
 
-function PromptTriggerActions({ children, className }: { children: React.ReactNode, className?: string }) {
+function PromptTriggerActions({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
     <div className={cn("flex items-center justify-between", className)}>
       {children}
@@ -237,21 +247,23 @@ function PromptTriggerSubmit({ className }: { className?: string }) {
       layoutId="ask-ai-button"
       transition={transition}
       onClick={handleSubmit}
-      className={cn("bg-pink-400 rounded-full", className)}
+      disabled={!value.trim()}
+      className={cn(
+        "bg-pink-400 rounded-full cursor-pointer disabled:cursor-not-allowed",
+        className,
+      )}
     >
       {isLoading ? (
-        <Square className="size-4 md:size-8 fill-white cursor-pointer text-white p-2" />
+        <Square className="size-4 md:size-8 fill-white text-white p-2" />
       ) : (
-        <ArrowUp className="size-7 md:size-8 cursor-pointer p-1.5 text-white" />
+        <ArrowUp className="size-7 md:size-8 p-1.5 text-white" />
       )}
     </motion.button>
   );
 }
 
-
-
-function AIIcon(){
-  return 
+function AIIcon() {
+  return;
 }
 export {
   PromptTriggerButton,

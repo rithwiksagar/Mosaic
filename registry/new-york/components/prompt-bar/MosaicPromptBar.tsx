@@ -20,7 +20,7 @@ import {
   useEffect,
 } from "react";
 import { cn } from "@/lib/utils";
-import { motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 
 export type PromptPayload = {
   prompt: string;
@@ -171,42 +171,50 @@ function ToolItem({
   const Icon = icon;
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 8 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{
-        duration: 0.2,
-        delay: index * 0.03,
-      }}
-      onClick={() => {
-        setPayload((prev) => ({
-          prompt:
-            slashIndex === -1 ? prev.prompt : prev.prompt.slice(0, slashIndex),
-          tool: id ?? null,
-        }));
-        setQuery("");
-        setSlashIndex(-1);
-        setIsToolMenuOpen(false);
-      }}
-      className={cn(
-        "flex items-center gap-2 rounded-lg leading-none py-2 px-4 cursor-pointer hover:bg-neutral-100/60 select-none",
-        index === selectedIndex && "bg-neutral-100/60",
-        className,
-      )}
-    >
-      {Icon && <Icon className={cn("size-4 shrink-0", color)} />}
-      <div className="flex items-center gap-2">
-        <p className={cn("text-sm font-medium tracking-wide")}>{title}</p>
-        <p
-          className={cn(
-            "hidden lg:block text-sm font-normal",
-            index === selectedIndex ? "text-neutral-600" : "text-neutral-500",
-          )}
-        >
-          {description}
-        </p>
-      </div>
-    </motion.div>
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{
+          opacity: 0,
+          y: -8,
+        }}
+        transition={{
+          duration: 0.2,
+          delay: index * 0.03,
+        }}
+        onClick={() => {
+          setPayload((prev) => ({
+            prompt:
+              slashIndex === -1
+                ? prev.prompt
+                : prev.prompt.slice(0, slashIndex),
+            tool: id ?? null,
+          }));
+          setQuery("");
+          setSlashIndex(-1);
+          setIsToolMenuOpen(false);
+        }}
+        className={cn(
+          "flex items-center gap-2 rounded-lg leading-none py-2 px-4 cursor-pointer hover:bg-neutral-100/60 select-none",
+          index === selectedIndex && "bg-neutral-100/60",
+          className,
+        )}
+      >
+        {Icon && <Icon className={cn("size-4 shrink-0", color)} />}
+        <div className="flex items-center gap-2">
+          <p className={cn("text-sm font-medium tracking-wide")}>{title}</p>
+          <p
+            className={cn(
+              "hidden lg:block text-sm font-normal",
+              index === selectedIndex ? "text-neutral-600" : "text-neutral-500",
+            )}
+          >
+            {description}
+          </p>
+        </div>
+      </motion.div>
+    </AnimatePresence>
   );
 }
 
@@ -241,7 +249,7 @@ function PromptInput({
     <div
       ref={promptInputRef}
       className={cn(
-        "w-80 lg:w-160 flex flex-col justify-between rounded-2xl border border-white/30 dark:border-neutral-700 bg-white/90 dark:bg-neutral-700 p-3 space-y-1 shadow",
+        "w-80 lg:w-160 flex flex-col justify-between rounded-2xl border border-white/30 dark:border-neutral-700 bg-white/90 dark:bg-neutral-900 p-3 space-y-1 shadow",
         className,
       )}
     >

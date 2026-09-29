@@ -105,6 +105,9 @@ function PromptLauncher({
       <div ref={containerRef} className={cn(className)}>
         <motion.div
           layout
+          onClick={() => {
+            if (!isExpanded) setIsExpanded(true);
+          }}
           transition={{
             layout: { duration: 0.25, ease: [0.22, 1, 0.36, 1] },
           }}
@@ -112,8 +115,9 @@ function PromptLauncher({
             width: isExpanded ? "min(500px, calc(100vw - 2rem))" : "auto",
           }}
           className={cn(
-            "bg-neutral-100 dark:bg-neutral-800 dark:text-white font-medium pl-4 pr-3 py-2.5 shadow-[0_2px_4px_rgba(0,0,0,0.06),0_8px_20px_rgba(0,0,0,0.08)] dark:shadow-[0_2px_4px_rgba(0,0,0,0.2),0_8px_20px_rgba(0,0,0,0.25)]",
+            "bg-neutral-100 dark:bg-neutral-800 dark:text-white font-medium pl-4 pr-3 py-2 shadow-[0_2px_4px_rgba(0,0,0,0.06),0_8px_20px_rgba(0,0,0,0.08)] dark:shadow-[0_2px_4px_rgba(0,0,0,0.2),0_8px_20px_rgba(0,0,0,0.25)]",
             multiLine ? "rounded-2xl" : "rounded-full",
+            !isExpanded && "cursor-pointer",
           )}
         >
           {isExpanded
@@ -126,8 +130,6 @@ function PromptLauncher({
 }
 
 function PromptLauncherButton({ className }: { className?: string }) {
-  const { setIsExpanded } = useMosaicContext();
-
   return (
     <button
       type="button"
@@ -135,7 +137,6 @@ function PromptLauncherButton({ className }: { className?: string }) {
         "flex items-center justify-between text-lg gap-2 cursor-pointer",
         className,
       )}
-      onClick={() => setIsExpanded(true)}
     >
       <motion.span layoutId="ask-ai" transition={transition}>
         Ask AI
@@ -158,39 +159,46 @@ function PromptLauncherPromptBar({
   return (
     <AnimatePresence mode="popLayout">
       {isExpanded && (
-        <div className={cn("flex items-center", className)}>{children}</div>
+        <div
+          className={cn(
+            "grid w-full min-w-0 grid-cols-[minmax(0,1fr)_auto] items-end gap-2",
+            className,
+          )}
+        >
+          {children}
+        </div>
       )}
     </AnimatePresence>
   );
 }
 
 function PromptLauncherTextarea({ className }: { className?: string }) {
-  const { value, setValue, textareaRef, setMultiLine, onSubmit } =
+  const { value, setValue, textareaRef, setMultiLine, onSubmit, isExpanded } =
     useMosaicContext();
 
-  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  useEffect(() => {
     const textarea = textareaRef.current;
     if (!textarea) return;
-    textarea.style.height = "0";
-    textarea.style.height = textarea.scrollHeight + "px";
-    setValue(e.target.value);
-    setMultiLine(textarea.scrollHeight > 32);
-  };
+    textarea.style.height = "0px";
+    const height = textarea.scrollHeight;
+    textarea.style.height = `${Math.min(height, 256)}px`;
+    setMultiLine(height > 32);
+  }, [value, isExpanded, setMultiLine, textareaRef]);
 
   return (
-    <div className="min-w-0 flex-1 relative">
+    <div className="relative flex min-w-0 min-h-8 items-center">
       <textarea
         ref={textareaRef}
         value={value}
-        onChange={handleChange}
+        onChange={(e) => setValue(e.target.value)}
         onKeyDown={(e) => {
           if (e.key === "Enter" && !e.shiftKey) {
             e.preventDefault();
-            onSubmit();
+            if (value.trim()) onSubmit();
           }
         }}
         className={cn(
-          "w-full min-w-0 h-8 max-h-64 py-1.5 px-3 resize-none outline-none dark:text-neutral-100 overflow-y-scroll [scrollbar-width:none] mask-[linear-gradient(to_bottom,transparent,black_4%,black_98%,transparent)]",
+          "w-full min-w-0 h-8 max-h-64 py-1 px-3 leading-6 resize-none outline-none dark:text-neutral-100 overflow-y-auto [scrollbar-width:none] mask-[linear-gradient(to_bottom,transparent,black_4%,black_98%,transparent)]",
           className,
         )}
       />
@@ -198,7 +206,7 @@ function PromptLauncherTextarea({ className }: { className?: string }) {
         <motion.span
           layoutId="ask-ai"
           transition={transition}
-          className="absolute text-neutral-500 left-3 top-1.5"
+          className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400 font-normal dark:text-neutral-600"
         >
           Ask AI
         </motion.span>
@@ -221,7 +229,11 @@ function PromptLauncherSubmit({ className }: { className?: string }) {
       layoutId="ask-ai-button"
       transition={transition}
       onClick={handleSubmit}
-      className={cn("bg-blue-500 rounded-full", className)}
+      disabled={!value.trim()}
+      className={cn(
+        "shrink-0 bg-blue-500 rounded-full disabled:cursor-not-allowed",
+        className,
+      )}
     >
       {isLoading ? (
         <Square className="size-4 md:size-8 fill-white cursor-pointer text-white p-2" />

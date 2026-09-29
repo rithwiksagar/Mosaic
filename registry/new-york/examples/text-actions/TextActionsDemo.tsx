@@ -40,27 +40,7 @@ export function TextActionsDemo() {
           {Message}
         </TextActions>
       </div>
-      <div className="absolute bottom-6 left-1/2 flex h-12 w-[calc(100%-2rem)] max-w-xl -translate-x-1/2 items-center rounded-full border border-neutral-200 bg-neutral-100 px-2 py-2.5">
-        <textarea
-          value={value}
-          placeholder="Ask me anything..."
-          onChange={(e) => setValue(e.target.value)}
-          onSubmit={() => handleSubmit(value)}
-          className="h-7 min-w-0 flex-1 self-center resize-none overflow-hidden px-2.5 text-left outline-none placeholder:text-neutral-300"
-        ></textarea>
-        <button
-          type="button"
-          onClick={() => handleSubmit(value)}
-          disabled={isLoading}
-          className="flex size-8 items-center justify-center rounded-full bg-sky-500 text-white disabled:cursor-not-allowed"
-        >
-          {isLoading ? (
-            <Square className="size-4 fill-white" />
-          ) : (
-            <ArrowUp className="size-4" />
-          )}
-        </button>
-      </div>
+
     </div>
   );
 }
