@@ -49,29 +49,16 @@ export default async function DocsPage({
         <CodeFile filePath={component.filePath} code={componentCode} />
       </section>
 
-      <PropsTable
-        title="Props"
-        data={[
-          {
-            prop: "payload",
-            type: "PromptPayload",
-            default: "{}",
-            description: "Current prompt value.",
-          },
-          {
-            prop: "isLoading",
-            type: "boolean",
-            default: "false",
-            description: "Shows the loading state.",
-          },
-          {
-            prop: "tools",
-            type: "Tool[]",
-            default: "[]",
-            description: "Commands available from the slash menu.",
-          },
-        ]}
-      />
+      <h6 className="text-base font-medium text-neutral-700 dark:text-neutral-300 sm:text-lg mt-10">
+        API Reference
+      </h6>
+      {component.props.map((data, index) => (
+        <PropsTable
+          key={`${component.slug}-${component.propTitles[index]}`}
+          title={component.propTitles[index] ?? "Props"}
+          data={data}
+        />
+      ))}
 
       <DocsFooter currentPage={slug} />
     </div>

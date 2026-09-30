@@ -34,7 +34,7 @@ export function CopyButton({
       }}
       className={cn(className, "cursor-pointer text-neutral-500 dark:text-neutral-400")}
     >
-      <MorphIcon icon={copied ? CircleCheck : Copy} className="size-4.5"/>
+      <MorphIcon icon={copied ? CircleCheck : Copy} className="size-4"/>
     </motion.button>
   );
 }

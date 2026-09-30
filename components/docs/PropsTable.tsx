@@ -14,52 +14,56 @@ export default function PropsTable({ title, data }: PropsTableProps) {
   if (data.length === 0) return null;
 
   return (
-    <div className="mt-10">
-      <h6 className="mb-1 text-md font-semibold font-mono text-neutral-700 dark:text-neutral-300">
+    <div className="mt-4">
+      <h6 className="m-0 text-md font-normal font-mono text-neutral-700 dark:text-neutral-300">
         {title}
       </h6>
 
       <div className="overflow-x-auto">
-        <div className="inline-block rounded-lg border border-neutral-300 dark:border-neutral-700">
-          <table className="w-198 border-collapse text-left">
-            <thead className="border-b bg-muted/40 dark:bg-neutral-900">
-              <tr>
-                <th className="px-4 py-3 text-sm font-semibold">Prop</th>
-                <th className="px-4 py-3 text-sm font-semibold">Type</th>
-                <th className="px-4 py-3 text-sm font-semibold">Default</th>
-              </tr>
-            </thead>
+        <div className="inline-block overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-800">
+          <div className="w-198 text-left">
+            <div className="grid grid-cols-[minmax(7rem,0.9fr)_minmax(10rem,1.2fr)_minmax(7rem,0.9fr)_minmax(18rem,2fr)] border-b border-neutral-200 bg-neutral-200/50 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-500 py-2">
+              <span className="px-4 py-1.5 text-sm font-medium">Prop</span>
+              <span className="px-4 py-1.5 text-sm font-medium">Type</span>
+              <span className="px-4 py-1.5 text-sm font-medium">Default</span>
+              <span className="px-4 py-1.5 text-sm font-medium">
+                Description
+              </span>
+            </div>
 
-            <tbody>
-              {data.map((item) => (
-                <tr key={item.prop} className="border-b last:border-none">
-                  <td className="px-4">
-                    <code className="rounded bg-muted dark:bg-neutral-800 px-2 py-1 font-mono text-sm text-neutral-500 dark:text-neutral-300">
-                      {item.prop}
-                    </code>
-                  </td>
+            {data.map((item) => (
+              <div
+                key={item.prop}
+                className="grid grid-cols-[minmax(7rem,0.9fr)_minmax(10rem,1.2fr)_minmax(7rem,0.9fr)_minmax(18rem,2fr)] items-start border-b border-neutral-200 last:border-none dark:border-neutral-800"
+              >
+                <span className="px-4 py-2 font-mono text-sm font-normal text-neutral-600 dark:text-neutral-300">
+                  {item.prop}
+                </span>
 
-                  <td className="px-4 py-3">
-                    <code className="font-mono text-sm text-neutral-500 dark:text-neutral-300">
-                      {item.type}
-                    </code>
-                  </td>
+                <span className="min-w-0 px-4 py-2">
+                  <span className="inline-flex max-w-full whitespace-normal wrap-anywhere rounded-md bg-neutral-200/60 px-2 py-0.5 font-mono text-sm font-normal text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300">
+                    {item.type}
+                  </span>
+                </span>
 
-                  <td className="px-4 py-3">
-                    {item.default ? (
-                      <code className="font-mono text-sm text-neutral-500 dark:text-neutral-300">
-                        {item.default}
-                      </code>
-                    ) : (
-                      <span className="text-neutral-700 dark:text-neutral-300">
-                        —
-                      </span>
-                    )}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                <span className="px-4 py-2">
+                  {item.default ? (
+                    <span className="font-mono text-sm font-normal text-neutral-600 dark:text-neutral-300">
+                      {item.default}
+                    </span>
+                  ) : (
+                    <span className="font-normal text-neutral-700 dark:text-neutral-300">
+                      —
+                    </span>
+                  )}
+                </span>
+
+                <span className="px-4 py-2 text-sm font-normal text-neutral-700 dark:text-neutral-300">
+                  {item.description}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
