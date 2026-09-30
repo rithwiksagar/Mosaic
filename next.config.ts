@@ -6,7 +6,7 @@ const nextConfig = {
 
   outputFileTracingIncludes: {
     '/*': [
-      './registry/new-york/**/*',
+      './components/docs/**/*',
     ],
   },
 }
